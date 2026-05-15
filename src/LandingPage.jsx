@@ -6,6 +6,47 @@ const LandingPage = () => {
   const [scrollY, setScrollY] = useState(0);
   const [visible, setVisible] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+
+  const testimonials = [
+    {
+      quote: "Solace Point didn't just give me a policy; they gave me my nights back. Knowing my legacy is architected for stability allows me to focus on creating, not worrying.",
+      author: "Julian Vance",
+      title: "Founding Partner, Vance Global Holdings",
+      rating: 5,
+      avatar: "/Users/macbookpro/.gemini/antigravity/brain/30c88fe7-325d-44ed-8026-18daec5f4d61/premium_client_portrait_1_1778855982298.png"
+    },
+    {
+      quote: "In the world of high-stakes logistics, certainty is a rare commodity. Solace Point provided the architectural foundation we needed to expand globally with absolute confidence.",
+      author: "Elena Rossi",
+      title: "CEO, Rossi Maritime Group",
+      rating: 4,
+      avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      quote: "They don't just manage risk; they anticipate it. Their foresight saved our heritage estate from a complex liability issue before it even manifested.",
+      author: "Marcus Thorne",
+      title: "Estate Trustee, Thorne & Co.",
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      quote: "The level of quiet authority and personal advisory at Solace Point is unmatched. They are truly the architects of my family's financial peace.",
+      author: "Sienna Chen",
+      title: "Philanthropist & Tech Investor",
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=800&auto=format&fit=crop"
+    }
+  ];
+
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+    const timer = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, [isAutoPlaying, testimonials.length]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -85,31 +126,31 @@ const LandingPage = () => {
           />
           <div className="absolute inset-0 bg-primary/40 backdrop-brightness-75"></div>
         </div>
-        <div className="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:pl-0 md:pr-margin-desktop">
+        <div className="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:pl-0 md:pr-margin-desktop md:-translate-x-12">
           <div className="max-w-2xl text-left">
             <div className="inline-flex items-center gap-3 mb-8">
               <div className="w-12 h-[1px] bg-secondary"></div>
               <span className="text-secondary text-[13px] font-bold uppercase tracking-[0.4em]">Architects of Stability</span>
             </div>
             
-            <h1 className="font-display-lg text-[clamp(40px,7vw,72px)] mb-8 leading-[1.1] font-bold text-white">
+            <h1 className="font-display-lg text-[clamp(44px,8vw,84px)] mb-8 leading-[1.1] font-bold text-white">
               We Don’t Just <br/>
               Sell Insurance.<br/>
-              <span className="text-secondary italic">We Sell Peace of Mind.</span>
+              <span className="text-secondary font-black">We Sell Peace <br/> of Mind.</span>
             </h1>
             
             <p className="font-body-lg text-lg md:text-xl mb-12 max-w-xl leading-relaxed text-white/90">
               Experience the profound quietude that comes from knowing you're truly protected. We bridge the gap between uncertainty and absolute resolution.
             </p>
             
-            <div className="flex flex-wrap items-center gap-8">
-              <button className="bg-secondary text-on-secondary-fixed px-10 py-4 font-bold text-xs rounded-full uppercase tracking-[0.2em] hover:bg-white transition-all duration-300">
+            <div className="flex flex-wrap items-center gap-10">
+              <button className="bg-secondary text-on-secondary-fixed px-12 py-5 font-bold text-sm rounded-full uppercase tracking-[0.2em] hover:bg-white transition-all duration-300 shadow-lg">
                 Secure Your Peace
               </button>
               
-              <button className="group flex items-center gap-4 font-bold text-xs uppercase tracking-[0.2em] transition-all text-white hover:text-secondary">
+              <button className="group flex items-center gap-5 font-bold text-sm uppercase tracking-[0.2em] transition-all text-white hover:text-secondary">
                 <span className="pb-1">Our Methodology</span>
-                <span className="material-symbols-outlined text-xl transition-transform group-hover:translate-x-2" data-icon="arrow_forward">arrow_forward</span>
+                <span className="material-symbols-outlined text-2xl transition-transform group-hover:translate-x-2" data-icon="arrow_forward">arrow_forward</span>
               </button>
             </div>
           </div>
@@ -120,37 +161,39 @@ const LandingPage = () => {
       <section className="py-40 bg-surface">
         <div className="max-w-container-max mx-auto px-margin-desktop">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-            <div className="space-y-12">
+            <div className="space-y-12 lg:-translate-x-12">
               <div>
                 <p className="text-tertiary font-bold tracking-[0.5em] uppercase mb-6 text-sm">The Solace Standard</p>
-                <h2 className="font-display-lg text-5xl md:text-6xl text-on-surface leading-tight font-bold">What Does True Peace <br/>of Mind Feel Like?</h2>
+                <h2 className="font-display-lg text-5xl md:text-6xl text-on-surface leading-tight font-bold">What Does True Peace of Mind <br className="hidden lg:block"/> Feel Like?</h2>
               </div>
-              <div className="space-y-12">
-                <div className="flex gap-8 group">
-                  <div className="flex-shrink-0 w-20 h-20 rounded-2xl bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm border border-outline-variant/30">
-                    <span className="material-symbols-outlined text-4xl" data-icon="visibility">visibility</span>
+              <div className="space-y-16">
+                <div className="flex gap-10 group">
+                  <div className="flex-shrink-0 w-20 flex items-baseline justify-center">
+                    <span className="font-display-lg text-6xl italic text-tertiary/60 leading-none">01</span>
                   </div>
                   <div>
-                    <h4 className="font-headline-md text-2xl mb-3 text-on-surface font-bold">Absolute Foresight</h4>
-                    <p className="text-on-surface-variant leading-relaxed text-lg">Anticipating risks before they emerge, providing a protective layer that operates silently in the background of your life.</p>
+                    <h4 className="font-body-lg text-2xl mb-3 text-on-surface font-bold tracking-tight">Absolute Foresight</h4>
+                    <p className="text-on-surface-variant leading-relaxed text-lg max-w-md">Anticipating risks before they emerge, providing a protective layer that operates silently in the background of your life.</p>
                   </div>
                 </div>
-                <div className="flex gap-8 group">
-                  <div className="flex-shrink-0 w-20 h-20 rounded-2xl bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm border border-outline-variant/30">
-                    <span className="material-symbols-outlined text-4xl" data-icon="handshake">handshake</span>
+                
+                <div className="flex gap-10 group">
+                  <div className="flex-shrink-0 w-20 flex items-baseline justify-center">
+                    <span className="font-display-lg text-6xl italic text-tertiary/60 leading-none">02</span>
                   </div>
                   <div>
-                    <h4 className="font-headline-md text-2xl mb-3 text-on-surface font-bold">Unwavering Presence</h4>
-                    <p className="text-on-surface-variant leading-relaxed text-lg">A promise that we are the first responders to your recovery. When the world feels unstable, we remain your constant.</p>
+                    <h4 className="font-body-lg text-2xl mb-3 text-on-surface font-bold tracking-tight">Unwavering Presence</h4>
+                    <p className="text-on-surface-variant leading-relaxed text-lg max-w-md">A promise that we are the first responders to your recovery. When the world feels unstable, we remain your constant.</p>
                   </div>
                 </div>
-                <div className="flex gap-8 group">
-                  <div className="flex-shrink-0 w-20 h-20 rounded-2xl bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm border border-outline-variant/30">
-                    <span className="material-symbols-outlined text-4xl" data-icon="done_all">done_all</span>
+                
+                <div className="flex gap-10 group">
+                  <div className="flex-shrink-0 w-20 flex items-baseline justify-center">
+                    <span className="font-display-lg text-6xl italic text-tertiary/60 leading-none">03</span>
                   </div>
                   <div>
-                    <h4 className="font-headline-md text-2xl mb-3 text-on-surface font-bold">Resolved Certainty</h4>
-                    <p className="text-on-surface-variant leading-relaxed text-lg">The final point where worry ends. A lifestyle defined not by the risks you face, but by the security you possess.</p>
+                    <h4 className="font-body-lg text-2xl mb-3 text-on-surface font-bold tracking-tight">Resolved Certainty</h4>
+                    <p className="text-on-surface-variant leading-relaxed text-lg max-w-md">The final point where worry ends. A lifestyle defined not by the risks you face, but by the security you possess.</p>
                   </div>
                 </div>
               </div>
@@ -164,9 +207,12 @@ const LandingPage = () => {
                 />
                 <div className="absolute inset-0 bg-primary/5"></div>
               </div>
-              <div className="absolute -bottom-10 -left-10 bg-white p-12 rounded-2xl shadow-2xl border border-secondary/20 max-w-sm">
-                <span className="material-symbols-outlined text-tertiary text-6xl mb-6" data-icon="verified_user">verified_user</span>
-                <p className="font-headline-md text-2xl italic text-on-surface leading-snug">"Security is the freedom to live without hesitation."</p>
+              <div className="absolute -bottom-10 -left-10 bg-white p-8 rounded-[2.5rem] shadow-2xl border border-secondary/10 max-w-sm">
+                <p className="font-display-lg text-2xl font-bold text-on-surface leading-snug relative z-10">
+                  "Security is the freedom to live without hesitation."
+                </p>
+                <div className="w-12 h-[1px] bg-tertiary my-6"></div>
+                <p className="text-tertiary font-bold tracking-[0.5em] uppercase text-[10px]">The Solace Credo</p>
               </div>
             </div>
           </div>
@@ -174,39 +220,159 @@ const LandingPage = () => {
       </section>
 
       {/* Trust Markers / Social Proof */}
-      <section className="py-32 bg-surface-container-low border-y border-outline-variant/20">
-        <div className="max-w-container-max mx-auto px-margin-desktop">
-          <p className="text-center font-bold text-xs uppercase tracking-[0.6em] text-tertiary mb-20">Trusted by Discerning Clients Worldwide</p>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 items-center opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-700">
-            <div className="flex justify-center text-on-surface"><span className="font-display-lg text-2xl tracking-tighter uppercase font-bold">STERLING</span></div>
-            <div className="flex justify-center text-on-surface"><span className="font-display-lg text-2xl tracking-tighter uppercase font-bold">AZURE</span></div>
-            <div className="flex justify-center text-on-surface"><span className="font-display-lg text-2xl tracking-tighter uppercase font-bold">HORIZON</span></div>
-            <div className="flex justify-center text-on-surface"><span className="font-display-lg text-2xl tracking-tighter uppercase font-bold">OAK &amp; IRON</span></div>
-            <div className="hidden lg:flex justify-center text-on-surface"><span className="font-display-lg text-2xl tracking-tighter uppercase font-bold">MERIDIAN</span></div>
+      <section className="py-40 bg-surface-container-lowest relative overflow-hidden">
+        {/* Architectural Background Pattern */}
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
+          <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, #000 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
+        </div>
+        
+        <div className="max-w-[1400px] mx-auto relative z-10 px-4">
+          <div className="text-center mb-24">
+            <p className="font-bold text-xs uppercase tracking-[0.6em] text-tertiary mb-6">Credentialed Trust</p>
+            <h2 className="font-display-lg text-4xl md:text-5xl text-on-surface font-bold">Trusted by Discerning Clients</h2>
           </div>
-          {/* Testimonial */}
-          <div className="mt-32 max-w-4xl mx-auto text-center">
-            <div className="mb-10 flex justify-center gap-1 text-secondary">
-              <span className="material-symbols-outlined fill-1" data-icon="star">star</span>
-              <span className="material-symbols-outlined fill-1" data-icon="star">star</span>
-              <span className="material-symbols-outlined fill-1" data-icon="star">star</span>
-              <span className="material-symbols-outlined fill-1" data-icon="star">star</span>
-              <span className="material-symbols-outlined fill-1" data-icon="star">star</span>
+
+          {/* 3-Card Circular Carousel */}
+          <div className="relative h-[600px] md:h-[580px] max-w-5xl mx-auto">
+            <div className="relative w-full h-full flex items-center justify-center">
+              {testimonials.map((t, index) => {
+                // Circular Logic: Calculate relative position (-1, 0, 1)
+                let diff = index - currentTestimonial;
+                const len = testimonials.length;
+                
+                // Seamless wrap-around logic
+                if (diff > len / 2) diff -= len;
+                if (diff < -len / 2) diff += len;
+
+                const isActive = diff === 0;
+                const isLeft = diff === -1;
+                const isRight = diff === 1;
+                const isHidden = !isActive && !isLeft && !isRight;
+
+                return (
+                  <div 
+                    key={index}
+                    className={`absolute w-full max-w-[320px] md:max-w-[500px] transition-all duration-700 ease-in-out rounded-[2.5rem] shadow-2xl border border-outline-variant/30 bg-white overflow-hidden flex flex-col ${
+                      isHidden ? 'opacity-0 scale-75 pointer-events-none z-0' : 'opacity-100'
+                    } ${
+                      isActive ? 'z-30 scale-100 translate-x-0' : 
+                      isLeft ? 'z-10 scale-90 -translate-x-[65%] md:-translate-x-[80%] opacity-40 blur-[2px]' : 
+                      isRight ? 'z-10 scale-90 translate-x-[65%] md:translate-x-[80%] opacity-40 blur-[2px]' : ''
+                    }`}
+                  >
+                    {/* Portrait Section */}
+                    <div className="relative h-[160px] md:h-[220px] flex-shrink-0">
+                      <img 
+                        src={t.avatar} 
+                        alt={t.author} 
+                        className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                      />
+                      <div className="absolute inset-0 bg-primary/10"></div>
+                      <div className="absolute top-5 right-5 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full flex items-center gap-2 border border-secondary/20 shadow-sm">
+                        <span className="material-symbols-outlined text-secondary text-xs fill-1" data-icon="verified">verified</span>
+                        <span className="text-[9px] font-bold uppercase tracking-widest text-primary">Verified</span>
+                      </div>
+                    </div>
+                    
+                    {/* Content Section */}
+                    <div className="p-7 md:p-10 flex flex-col min-h-[250px]">
+                      <div className="mb-5 flex gap-1">
+                        {[...Array(5)].map((_, i) => (
+                          <span 
+                            key={i} 
+                            className={`material-symbols-outlined text-base ${i < t.rating ? 'text-secondary' : 'text-on-surface/10'}`}
+                            style={{ fontVariationSettings: i < t.rating ? "'FILL' 1" : "'FILL' 0" }}
+                          >
+                            star
+                          </span>
+                        ))}
+                      </div>
+                      
+                      <div className="flex-grow">
+                        <p className="font-display-lg text-base md:text-xl italic text-on-surface leading-relaxed mb-6">
+                          "{t.quote}"
+                        </p>
+                      </div>
+                      
+                      <div className="pt-5 border-t border-outline-variant/10">
+                        <p className="font-bold text-primary uppercase tracking-[0.2em] text-xs">{t.author}</p>
+                        <p className="text-on-surface-variant text-[9px] mt-1 uppercase tracking-widest font-medium leading-relaxed">{t.title}</p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
-            <p className="font-headline-md text-3xl md:text-4xl italic text-on-surface leading-relaxed mb-12">
-              "Solace Point didn't just give me a policy; they gave me my nights back. Knowing my legacy is architected for stability allows me to focus on creating, not worrying."
-            </p>
-            <div>
-              <p className="font-bold text-tertiary uppercase tracking-[0.3em] text-sm">Julian Vance</p>
-              <p className="text-on-surface-variant text-xs mt-2 uppercase tracking-widest">Founding Partner, Vance Global Holdings</p>
+            
+            {/* Navigation Controls */}
+            <div className="absolute top-1/2 -translate-y-1/2 w-full flex justify-between md:-mx-16 pointer-events-none z-40">
+              <button 
+                onClick={() => {
+                  setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+                  setIsAutoPlaying(false);
+                }}
+                className="w-12 h-12 bg-white/90 backdrop-blur-md rounded-full shadow-lg border border-outline-variant/30 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all pointer-events-auto group"
+              >
+                <span className="material-symbols-outlined group-hover:-translate-x-1 transition-transform text-xl" data-icon="arrow_back">arrow_back</span>
+              </button>
+              <button 
+                onClick={() => {
+                  setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+                  setIsAutoPlaying(false);
+                }}
+                className="w-12 h-12 bg-white/90 backdrop-blur-md rounded-full shadow-lg border border-outline-variant/30 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all pointer-events-auto group"
+              >
+                <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform text-xl" data-icon="arrow_forward">arrow_forward</span>
+              </button>
             </div>
           </div>
+
+          {/* Navigation Indicators */}
+          <div className="flex justify-center gap-3 mt-8">
+            {testimonials.map((_, index) => (
+              <button 
+                key={index}
+                onClick={() => {
+                  setCurrentTestimonial(index);
+                  setIsAutoPlaying(false);
+                }}
+                className={`h-1.5 rounded-full transition-all duration-500 ${
+                  index === currentTestimonial ? 'bg-secondary w-16' : 'bg-on-surface/10 hover:bg-on-surface/30 w-4'
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Sophisticated Architectural Divider */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] transform translate-y-px">
+          <svg className="relative block w-[calc(100%+1.3px)] h-[120px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5,73.84-4.36,147.54,16.88,218.32,35.26,69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113,2,1200,34.19V0Z" className="fill-surface-container-low opacity-40"></path>
+            <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.94,10.74,105.77,21,35.74,10.5,71.14,20,108.37,15.11,32.33-4.25,62.39-16.15,93.07-28,34.13-13.14,71.1-25.16,108.68-21.89,35.34,3.08,68,17.47,101.44,28.32,38.55,12.52,78.29,22.13,118.78,19.34,31.6-2.18,62.33-11,92.51-21.19V0Z" className="fill-surface-container-low"></path>
+          </svg>
         </div>
       </section>
 
       {/* Enhanced Product Solutions Grid */}
-      <section className="py-40 bg-surface-container-lowest relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-secondary/5 -skew-x-12 translate-x-1/2 pointer-events-none"></div>
+      <section className="py-40 bg-surface-container-low relative overflow-hidden">
+        {/* Classy Architectural Background Elements */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          {/* Subtle Drafting Grid */}
+          <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: 'linear-gradient(#000 0.5px, transparent 0.5px), linear-gradient(90deg, #000 0.5px, transparent 0.5px)', backgroundSize: '100px 100px' }}></div>
+          
+          {/* Elegant Architectural Lines (Gold) */}
+          <div className="absolute top-0 left-1/4 w-[1px] h-full bg-gradient-to-b from-transparent via-tertiary/20 to-transparent"></div>
+          <div className="absolute top-1/4 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-tertiary/20 to-transparent"></div>
+          
+          {/* Soft Luxury Glows */}
+          <div className="absolute -top-[20%] -right-[10%] w-[60%] h-[60%] bg-secondary/5 rounded-full blur-[120px]"></div>
+          <div className="absolute -bottom-[20%] -left-[10%] w-[60%] h-[60%] bg-tertiary/5 rounded-full blur-[120px]"></div>
+
+          {/* Faint Drafting Mark */}
+          <div className="absolute top-20 left-20 w-32 h-32 border-l border-t border-tertiary/30 opacity-50"></div>
+          <div className="absolute bottom-20 right-20 w-32 h-32 border-r border-b border-tertiary/30 opacity-50"></div>
+        </div>
+
         <div className="max-w-container-max mx-auto px-margin-desktop relative z-10">
           <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
             <div className="max-w-2xl">
