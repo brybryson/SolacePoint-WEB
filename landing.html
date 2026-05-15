@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Solace Point | Selling Peace of Mind</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "surface": "#fbf9fa",
+                "outline": "#8d9199",
+                "error-container": "#ffdad6",
+                "surface-container-lowest": "#ffffff",
+                "outline-variant": "#c3c6cf",
+                "inverse-primary": "#aac9f3",
+                "primary-fixed-dim": "#1e3f62",
+                "on-primary": "#ffffff",
+                "secondary-container": "#FADF7B",
+                "on-surface-variant": "#43474e",
+                "on-surface": "#103152",
+                "on-secondary-fixed": "#241a00",
+                "on-tertiary-fixed": "#281800",
+                "on-error": "#ffffff",
+                "surface-dim": "#edebec",
+                "tertiary-fixed-dim": "#f5bd62",
+                "on-tertiary-container": "#543800",
+                "secondary-fixed-dim": "#DDB959",
+                "error": "#ba1a1a",
+                "on-error-container": "#410002",
+                "surface-variant": "#dee3eb",
+                "on-primary-fixed-variant": "#d2e4ff",
+                "inverse-on-surface": "#fbf9fa",
+                "on-primary-fixed": "#ffffff",
+                "surface-container-highest": "#e2e2e6",
+                "background": "#fbf9fa",
+                "on-secondary-container": "#241a00",
+                "surface-bright": "#fbf9fa",
+                "primary": "#1E3F62",
+                "on-tertiary": "#ffffff",
+                "on-tertiary-fixed-variant": "#604100",
+                "on-secondary-fixed-variant": "#594400",
+                "primary-container": "#d2e4ff",
+                "primary-fixed": "#1e3f62",
+                "on-secondary": "#ffffff",
+                "surface-container-low": "#f5f3f4",
+                "surface-tint": "#1E3F62",
+                "surface-container-high": "#efedee",
+                "inverse-surface": "#103152",
+                "tertiary": "#AF7F2A",
+                "tertiary-container": "#ffdeae",
+                "tertiary-fixed": "#281800",
+                "secondary": "#DDB959",
+                "surface-container": "#f1eff0",
+                "on-background": "#103152"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "spacing": {
+                "margin-mobile": "16px",
+                "container-max": "1280px",
+                "gutter": "24px",
+                "base": "8px",
+                "margin-desktop": "64px"
+            },
+            "fontFamily": {
+                "display-lg": ["Playfair Display"],
+                "headline-xl": ["Playfair Display"],
+                "headline-md": ["Playfair Display"],
+                "body-lg": ["Montserrat"],
+                "body-md": ["Montserrat"],
+                "label-caps": ["Montserrat"]
+            }
+          },
+        },
+      }
+    </script>
+<style>.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; } .hero-overlay { background: linear-gradient(180deg, rgba(30, 63, 98, 0.8) 0%, rgba(30, 63, 98, 0.5) 60%, rgba(251, 249, 250, 1) 100%); } @keyframes ken-burns { from { transform: scale(1.05); } to { transform: scale(1.15); } } .animate-ken-burns { animation: ken-burns 40s ease-out infinite alternate; }</style>
+<style>.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; } .hero-overlay { background: linear-gradient(180deg, rgba(30, 63, 98, 0.8) 0%, rgba(30, 63, 98, 0.5) 60%, rgba(251, 249, 250, 1) 100%); } @keyframes ken-burns { from { transform: scale(1.05); } to { transform: scale(1.15); } } .animate-ken-burns { animation: ken-burns 40s ease-out infinite alternate; }</style><style data-stitch-cursor="">.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; } .hero-overlay { background: linear-gradient(180deg, rgba(30, 63, 98, 0.8) 0%, rgba(30, 63, 98, 0.5) 60%, rgba(251, 249, 250, 1) 100%); } @keyframes ken-burns { from { transform: scale(1.05); } to { transform: scale(1.15); } } .animate-ken-burns { animation: ken-burns 40s ease-out infinite alternate; }</style><style data-stitch-scroll-lock="">.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; } .hero-overlay { background: linear-gradient(180deg, rgba(30, 63, 98, 0.8) 0%, rgba(30, 63, 98, 0.5) 60%, rgba(251, 249, 250, 1) 100%); } @keyframes ken-burns { from { transform: scale(1.05); } to { transform: scale(1.15); } } .animate-ken-burns { animation: ken-burns 40s ease-out infinite alternate; }</style></head>
+<body class="bg-background font-body-md text-on-surface selection:bg-secondary/30 antialiased overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 fixed w-full top-0 z-[100] transition-all duration-500">
+<div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-24">
+<a class="flex items-center gap-4 group" href="#">
+<img alt="Solace Point Logo" class="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/ADBb0uiZqwxu6kKxohunlvYV3mvzh56vTd1ZV5HadRgRHnX_Jrd3yAPKtkFdkrPTvtaz5NqEKHoGX0ZiTSss5FKNP1rywbj4v-zDh0jti4qkRsOaNwaeq9lwxi2iLWbAqSV-EUMZsjE1X1RmOhKf6JWnKo12scc8KvSLaRA2v7H96ukXVB8H0LOJTxnng_3g2dHArpVWYxBcxkWG-uGxLBtoOEgpMOFTqNwwqd1CDrn8brh40YRXmuNTgpN6QGA"/>
+</a>
+<div class="hidden lg:flex items-center gap-12">
+<a class="text-on-surface hover:text-tertiary transition-colors duration-300 font-bold text-xs uppercase tracking-widest" href="#">The Experience</a>
+<a class="text-on-surface hover:text-tertiary transition-colors duration-300 font-bold text-xs uppercase tracking-widest" href="#">Solutions</a>
+<a class="text-on-surface hover:text-tertiary transition-colors duration-300 font-bold text-xs uppercase tracking-widest" href="#">Our Promise</a>
+<a class="text-on-surface hover:text-tertiary transition-colors duration-300 font-bold text-xs uppercase tracking-widest" href="#">Insights</a>
+</div>
+<button class="bg-primary text-white px-8 py-3 rounded-full font-bold text-xs uppercase tracking-widest transition-all hover:bg-on-surface hover:shadow-xl active:scale-95 duration-300">
+            Secure Your Peace
+        </button>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative h-screen flex items-center pt-24 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Luxury lakeside architecture at dusk" class="w-full h-full object-cover animate-ken-burns" src="https://lh3.googleusercontent.com/aida/ADBb0ui1JIDwQcReXpNiUEyVPMQKKcdsc-pc7IBkNNq5VEh4fbeEcjret7tUh5JTv5ooF2EQ7xbPuA38rm_NfcanzqjM-oogl2Hf8qmlFu44E5HYSkzMrIhF5Z4y-nBWH3yB05YGtODf5j-Y9cljragZ7HjJEtwOSK2-tVSdzF9h_WRZVpqXQL0s6HLihEjZRe6UsGw1GdMVpXpSvF00DTby5gJW8Qz6P0cy5NBNu-F4KiPaI_FqbsWnCtOxWEE"/>
+<div class="absolute inset-0 hero-overlay"></div>
+</div>
+<div class="relative z-10 w-full max-w-container-max mx-auto px-margin-desktop">
+<div class="max-w-4xl">
+<div class="inline-flex items-center gap-3 mb-8 px-6 py-2 rounded-full bg-white/60 backdrop-blur-md border border-secondary/30">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span class="text-white text-[11px] font-bold uppercase tracking-[0.4em]">Architects of Stability</span>
+</div>
+<h1 class="font-display-lg text-[clamp(44px,8vw,80px)] mb-10 leading-[1.1] font-bold text-white">We Don’t Just Sell Insurance.<br/>
+<span class="text-secondary italic">We Sell Peace of Mind.</span></h1>
+<p class="font-body-lg text-xl md:text-2xl mb-14 max-w-2xl leading-relaxed text-white">
+                Experience the profound quietude that comes from knowing you're truly protected. We bridge the gap between uncertainty and absolute resolution.
+            </p>
+<div class="flex flex-wrap gap-8">
+<button class="bg-primary text-white px-12 py-5 font-bold text-sm rounded-full uppercase tracking-widest hover:bg-on-surface transition-all shadow-2xl shadow-primary/20">
+                    Secure Your Peace
+                </button>
+<button class="group flex items-center gap-4 font-bold text-sm uppercase tracking-widest transition-all text-white">
+<span class="">Our Methodology</span>
+<span class="w-12 h-12 rounded-full border flex items-center justify-center group-hover:bg-primary group-hover:border-primary group-hover:text-white transition-all border-white/40">
+<span class="material-symbols-outlined text-xl" data-icon="arrow_forward">arrow_forward</span>
+</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Peace of Mind Definition Section -->
+<section class="py-40 bg-surface">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+<div class="space-y-12">
+<div>
+<p class="text-tertiary font-bold tracking-[0.5em] uppercase mb-6 text-sm">The Solace Standard</p>
+<h2 class="font-display-lg text-5xl md:text-6xl text-on-surface leading-tight font-bold">What Does True Peace <br/>of Mind Feel Like?</h2>
+</div>
+<div class="space-y-12">
+<div class="flex gap-8 group">
+<div class="flex-shrink-0 w-20 h-20 rounded-2xl bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm border border-outline-variant/30">
+<span class="material-symbols-outlined text-4xl" data-icon="visibility">visibility</span>
+</div>
+<div>
+<h4 class="font-headline-md text-2xl mb-3 text-on-surface font-bold">Absolute Foresight</h4>
+<p class="text-on-surface-variant leading-relaxed text-lg">Anticipating risks before they emerge, providing a protective layer that operates silently in the background of your life.</p>
+</div>
+</div>
+<div class="flex gap-8 group">
+<div class="flex-shrink-0 w-20 h-20 rounded-2xl bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm border border-outline-variant/30">
+<span class="material-symbols-outlined text-4xl" data-icon="handshake">handshake</span>
+</div>
+<div>
+<h4 class="font-headline-md text-2xl mb-3 text-on-surface font-bold">Unwavering Presence</h4>
+<p class="text-on-surface-variant leading-relaxed text-lg">A promise that we are the first responders to your recovery. When the world feels unstable, we remain your constant.</p>
+</div>
+</div>
+<div class="flex gap-8 group">
+<div class="flex-shrink-0 w-20 h-20 rounded-2xl bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm border border-outline-variant/30">
+<span class="material-symbols-outlined text-4xl" data-icon="done_all">done_all</span>
+</div>
+<div>
+<h4 class="font-headline-md text-2xl mb-3 text-on-surface font-bold">Resolved Certainty</h4>
+<p class="text-on-surface-variant leading-relaxed text-lg">The final point where worry ends. A lifestyle defined not by the risks you face, but by the security you possess.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative">
+<div class="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl relative">
+<img alt="Minimalist interior with calm lighting" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmyf4Srd22Ejnb5ZrfRRVFxBeWzXddIaDWsD5WbnliXcLYWNara-HEPj1d4rpu13acOfmqqWvvhy0-cOiM1pXanK1q6AVJiW_-_gi88Zx7GwXB6HveoaFafW-78CVYC1DXOntKs4BjqR23ErvHdRv15dtNDHKAj1xQgN-dUQCMAvAenjO66LKxmV9YFihXbANrjx2_bRxZp_GoYRoV8G9NgNgyih14AiXg2NXRKibr6Y7BqnGHiyE9mT8xl5bHIcxLYTQ7xD_Kv4Y"/>
+<div class="absolute inset-0 bg-primary/5"></div>
+</div>
+<div class="absolute -bottom-10 -left-10 bg-white p-12 rounded-2xl shadow-2xl border border-secondary/20 max-w-sm">
+<span class="material-symbols-outlined text-tertiary text-6xl mb-6" data-icon="verified_user">verified_user</span>
+<p class="font-headline-md text-2xl italic text-on-surface leading-snug">"Security is the freedom to live without hesitation."</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Markers / Social Proof -->
+<section class="py-32 bg-surface-container-low border-y border-outline-variant/20">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<p class="text-center font-bold text-xs uppercase tracking-[0.6em] text-tertiary mb-20">Trusted by Discerning Clients Worldwide</p>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 items-center opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-700">
+<div class="flex justify-center text-on-surface"><span class="font-display-lg text-2xl tracking-tighter uppercase font-bold">STERLING</span></div>
+<div class="flex justify-center text-on-surface"><span class="font-display-lg text-2xl tracking-tighter uppercase font-bold">AZURE</span></div>
+<div class="flex justify-center text-on-surface"><span class="font-display-lg text-2xl tracking-tighter uppercase font-bold">HORIZON</span></div>
+<div class="flex justify-center text-on-surface"><span class="font-display-lg text-2xl tracking-tighter uppercase font-bold">OAK &amp; IRON</span></div>
+<div class="hidden lg:flex justify-center text-on-surface"><span class="font-display-lg text-2xl tracking-tighter uppercase font-bold">MERIDIAN</span></div>
+</div>
+<!-- Testimonial -->
+<div class="mt-32 max-w-4xl mx-auto text-center">
+<div class="mb-10 flex justify-center gap-1 text-secondary">
+<span class="material-symbols-outlined fill-1" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-1" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-1" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-1" data-icon="star">star</span>
+<span class="material-symbols-outlined fill-1" data-icon="star">star</span>
+</div>
+<p class="font-headline-md text-3xl md:text-4xl italic text-on-surface leading-relaxed mb-12">
+                "Solace Point didn't just give me a policy; they gave me my nights back. Knowing my legacy is architected for stability allows me to focus on creating, not worrying."
+            </p>
+<div>
+<p class="font-bold text-tertiary uppercase tracking-[0.3em] text-sm">Julian Vance</p>
+<p class="text-on-surface-variant text-xs mt-2 uppercase tracking-widest">Founding Partner, Vance Global Holdings</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Enhanced Product Solutions Grid -->
+<section class="py-40 bg-surface-container-lowest relative overflow-hidden">
+<div class="absolute top-0 right-0 w-1/3 h-full bg-secondary/5 -skew-x-12 translate-x-1/2 pointer-events-none"></div>
+<div class="max-w-container-max mx-auto px-margin-desktop relative z-10">
+<div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+<div class="max-w-2xl">
+<p class="text-tertiary font-bold tracking-[0.5em] uppercase mb-6 text-sm">Curated Solutions</p>
+<h2 class="font-display-lg text-5xl md:text-6xl text-on-surface font-bold">Protection Architected <br/>for Your Legacy</h2>
+</div>
+<a class="group flex items-center gap-4 font-bold text-xs uppercase tracking-[0.3em] text-tertiary pb-3 border-b-2 border-secondary/30 hover:border-tertiary transition-all" href="#">
+                View All Solutions
+                <span class="material-symbols-outlined transition-transform duration-300 group-hover:translate-x-2" data-icon="arrow_right_alt">arrow_right_alt</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Home & Property -->
+<div class="group bg-surface p-12 border border-outline-variant/40 rounded-2xl hover:bg-white hover:shadow-2xl transition-all duration-500 flex flex-col h-full">
+<div class="mb-10 text-primary group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-6xl" data-icon="home_pin">home_pin</span>
+</div>
+<h3 class="font-headline-md text-2xl text-on-surface mb-6 font-bold">Residential Sanctuary</h3>
+<p class="font-body-md text-on-surface-variant mb-12 leading-relaxed flex-grow">Advanced fire and property protection that safeguards the hearth of your family’s history.</p>
+<button class="text-tertiary font-bold text-xs uppercase tracking-widest flex items-center gap-3 group/btn">
+                    Explore Solution
+                    <span class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center group-hover/btn:bg-tertiary group-hover/btn:text-white transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="chevron_right">chevron_right</span>
+</span>
+</button>
+</div>
+<!-- Mobility -->
+<div class="group bg-surface p-12 border border-outline-variant/40 rounded-2xl hover:bg-white hover:shadow-2xl transition-all duration-500 flex flex-col h-full">
+<div class="mb-10 text-primary group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-6xl" data-icon="explore">explore</span>
+</div>
+<h3 class="font-headline-md text-2xl text-on-surface mb-6 font-bold">Guided Transit</h3>
+<p class="font-body-md text-on-surface-variant mb-12 leading-relaxed flex-grow">Premium mobility coverage for land and sea, ensuring your journey remains uninterrupted.</p>
+<button class="text-tertiary font-bold text-xs uppercase tracking-widest flex items-center gap-3 group/btn">
+                    Explore Solution
+                    <span class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center group-hover/btn:bg-tertiary group-hover/btn:text-white transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="chevron_right">chevron_right</span>
+</span>
+</button>
+</div>
+<!-- Life -->
+<div class="group bg-surface p-12 border border-outline-variant/40 rounded-2xl hover:bg-white hover:shadow-2xl transition-all duration-500 flex flex-col h-full">
+<div class="mb-10 text-primary group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-6xl" data-icon="shield_with_heart">shield_with_heart</span>
+</div>
+<h3 class="font-headline-md text-2xl text-on-surface mb-6 font-bold">Kinred Vitality</h3>
+<p class="font-body-md text-on-surface-variant mb-12 leading-relaxed flex-grow">Bespoke life and wellness architecture for those who mean everything to you.</p>
+<button class="text-tertiary font-bold text-xs uppercase tracking-widest flex items-center gap-3 group/btn">
+                    Explore Solution
+                    <span class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center group-hover/btn:bg-tertiary group-hover/btn:text-white transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="chevron_right">chevron_right</span>
+</span>
+</button>
+</div>
+<!-- Business -->
+<div class="group bg-surface p-12 border border-outline-variant/40 rounded-2xl hover:bg-white hover:shadow-2xl transition-all duration-500 flex flex-col h-full">
+<div class="mb-10 text-primary group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-6xl" data-icon="anchor">anchor</span>
+</div>
+<h3 class="font-headline-md text-2xl text-on-surface mb-6 font-bold">Venture Stability</h3>
+<p class="font-body-md text-on-surface-variant mb-12 leading-relaxed flex-grow">Strategic commercial bonds and casualty insurance designed for the modern innovator.</p>
+<button class="text-tertiary font-bold text-xs uppercase tracking-widest flex items-center gap-3 group/btn">
+                    Explore Solution
+                    <span class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center group-hover/btn:bg-tertiary group-hover/btn:text-white transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="chevron_right">chevron_right</span>
+</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Methodology Section -->
+<section class="py-40 bg-surface overflow-hidden">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="text-center mb-24 max-w-3xl mx-auto">
+<span class="text-tertiary font-bold tracking-[0.5em] uppercase mb-6 block text-sm">Our Methodology</span>
+<h2 class="font-display-lg text-5xl md:text-6xl text-on-surface mb-8 font-bold">The Architecture of Resolution</h2>
+<p class="font-body-lg text-on-surface-variant leading-relaxed text-xl">
+                We navigate the transition from distress to total resolution through a systematic, calm, and authoritative process.
+            </p>
+</div>
+<div class="max-w-5xl mx-auto mb-24">
+<div class="relative bg-white rounded-[2rem] shadow-xl p-8 md:p-16 overflow-hidden border border-outline-variant/20">
+<div class="absolute inset-0 bg-gradient-to-tr from-primary/5 to-transparent opacity-50"></div>
+<img alt="Infographic showing transition from distress to Solace Point" class="relative z-10 w-full h-auto" src="https://lh3.googleusercontent.com/aida/ADBb0uhaT8k2BVDtGesC32Ep-M8-Za8H3vJTijvwsQe5bsrpNF7BEfxgPDdJGV7tvfnZBQrmp6JOUaAJWNwp1OOP7pNypLDIJcUEgzt3v32ZWcAnXwwZiui7Jl_kpJnIDIxg0LCF3aDrS1ktDlucG5jl_G_9CO_kITUBP6SQCjrEOp5hAsVTXete5P7JGxHUEK0jKEJzrTWTWb1eYZB_rx6r7dDc7Rm4YyUsC0HhIAwvJFQbgHt5p6_ZtW9h7zU"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+<div class="text-center px-6 group">
+<div class="w-20 h-20 rounded-full bg-white flex items-center justify-center mx-auto mb-8 border border-outline-variant/30 group-hover:border-primary transition-colors shadow-sm">
+<span class="text-3xl font-display-lg italic text-primary/60">01</span>
+</div>
+<h4 class="font-headline-md text-2xl mb-4 text-on-surface font-bold">Initial Distress</h4>
+<p class="text-on-surface-variant leading-relaxed">Mapping the chaos of risk into a manageable framework of needs.</p>
+</div>
+<div class="text-center px-6 group">
+<div class="w-20 h-20 rounded-full bg-white flex items-center justify-center mx-auto mb-8 border border-outline-variant/30 group-hover:border-primary transition-colors shadow-sm">
+<span class="text-3xl font-display-lg italic text-primary/60">02</span>
+</div>
+<h4 class="font-headline-md text-2xl mb-4 text-on-surface font-bold">Strategic Recovery</h4>
+<p class="text-on-surface-variant leading-relaxed">Deploying the bridge of resources that leads back to solid ground.</p>
+</div>
+<div class="text-center px-6 group">
+<div class="w-20 h-20 rounded-full bg-primary flex items-center justify-center mx-auto mb-8 shadow-2xl shadow-primary/30 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-white text-3xl font-bold" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<h4 class="font-headline-md text-2xl mb-4 text-on-surface font-bold">Solace Point</h4>
+<p class="text-on-surface-variant leading-relaxed">The attainment of absolute security and long-term resolution.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA Section -->
+<section class="py-48 bg-primary text-white relative overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute top-0 right-0 w-[800px] h-[800px] bg-white/10 rounded-full blur-[140px] -translate-y-1/2 translate-x-1/3"></div>
+<div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-white/10 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/4"></div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop relative z-10 text-center">
+<h2 class="font-display-lg text-5xl md:text-7xl mb-12 font-bold leading-tight">Ready to Secure Your Peace?</h2>
+<p class="font-body-lg text-xl md:text-2xl text-white/80 mb-20 max-w-2xl mx-auto leading-relaxed">
+            Join the collective of individuals and businesses who have chosen to live life at the exact point where worry ends.
+        </p>
+<div class="flex flex-col sm:flex-row justify-center items-center gap-8">
+<button class="bg-secondary text-on-secondary-fixed px-16 py-7 font-bold text-sm rounded-full uppercase tracking-[0.3em] hover:bg-secondary-container transition-all shadow-xl w-full sm:w-auto">
+                Get Secured Now
+            </button>
+<button class="border-2 border-white/40 text-white hover:bg-white hover:text-primary px-16 py-7 font-bold text-sm rounded-full uppercase tracking-[0.3em] transition-all backdrop-blur-sm w-full sm:w-auto">
+                Speak with an Advisor
+            </button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface pt-32 pb-16 px-margin-desktop border-t border-outline-variant/30">
+<div class="max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-20 mb-32">
+<div class="lg:col-span-5">
+<img alt="Solace Point Logo" class="h-10 w-auto mb-10 object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0uiZqwxu6kKxohunlvYV3mvzh56vTd1ZV5HadRgRHnX_Jrd3yAPKtkFdkrPTvtaz5NqEKHoGX0ZiTSss5FKNP1rywbj4v-zDh0jti4qkRsOaNwaeq9lwxi2iLWbAqSV-EUMZsjE1X1RmOhKf6JWnKo12scc8KvSLaRA2v7H96ukXVB8H0LOJTxnng_3g2dHArpVWYxBcxkWG-uGxLBtoOEgpMOFTqNwwqd1CDrn8brh40YRXmuNTgpN6QGA"/>
+<p class="font-body-md text-on-surface-variant mb-12 leading-relaxed max-w-sm text-lg">
+                    A premium insurance agency dedicated to the architecture of security. We provide the foundation upon which your future is built.
+                </p>
+<div class="flex gap-6">
+<a class="w-14 h-14 rounded-full border border-outline-variant flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="public">public</span>
+</a>
+<a class="w-14 h-14 rounded-full border border-outline-variant flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="shield">shield</span>
+</a>
+<a class="w-14 h-14 rounded-full border border-outline-variant flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="verified">verified</span>
+</a>
+</div>
+</div>
+<div class="lg:col-span-2">
+<h5 class="font-bold uppercase tracking-[0.4em] text-tertiary text-xs mb-10">Solutions</h5>
+<ul class="space-y-6">
+<li class=""><a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium tracking-wide" href="#">Residential</a></li>
+<li class=""><a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium tracking-wide" href="#">Commercial</a></li>
+<li class=""><a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium tracking-wide" href="#">Vitality</a></li>
+<li class=""><a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium tracking-wide" href="#">Innovation</a></li>
+</ul>
+</div>
+<div class="lg:col-span-2">
+<h5 class="font-bold uppercase tracking-[0.4em] text-tertiary text-xs mb-10">Company</h5>
+<ul class="space-y-6">
+<li class=""><a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium tracking-wide" href="#">Methodology</a></li>
+<li class=""><a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium tracking-wide" href="#">Advisory</a></li>
+<li class=""><a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium tracking-wide" href="#">Insights</a></li>
+<li class=""><a class="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium tracking-wide" href="#">Contact</a></li>
+</ul>
+</div>
+<div class="lg:col-span-3">
+<h5 class="font-bold uppercase tracking-[0.4em] text-tertiary text-xs mb-10">Newsletter</h5>
+<p class="text-on-surface-variant text-sm mb-8 leading-relaxed">Receive curated insights on risk management and financial peace.</p>
+<div class="flex flex-col gap-4">
+<input class="bg-surface-container-low border border-outline-variant/40 rounded-full px-6 py-4 w-full text-on-surface placeholder-on-surface-variant/50 focus:ring-2 focus:ring-primary outline-none transition-all" placeholder="Email Address" type="email"/>
+<button class="bg-primary text-white px-8 py-4 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-on-surface transition-all shadow-lg">Join the Circle</button>
+</div>
+</div>
+</div>
+<div class="pt-12 border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center gap-8">
+<p class="font-body-md text-xs text-on-surface-variant/70 uppercase tracking-widest">
+                © 2024 Solace Point Insurance Agency. All rights reserved. Registered Architectural Insurance Firm.
+            </p>
+<div class="flex items-center gap-10 text-[10px] text-on-surface-variant/60 uppercase tracking-[0.3em]">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<span class="flex items-center gap-3">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+                    Secure Connection
+                </span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

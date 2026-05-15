@@ -1,0 +1,33 @@
+/* Solace Point Styles */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+}
+
+.hero-overlay {
+  background: linear-gradient(180deg, rgba(30, 63, 98, 0.8) 0%, rgba(30, 63, 98, 0.5) 60%, rgba(251, 249, 250, 1) 100%);
+}
+
+@keyframes ken-burns {
+  from {
+    transform: scale(1.05);
+  }
+  to {
+    transform: scale(1.15);
+  }
+}
+
+.animate-ken-burns {
+  animation: ken-burns 40s ease-out infinite alternate;
+}
+
+@keyframes scroll {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(200%); }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: #1E3F62; /* Match primary theme color */
+}
