@@ -31,3 +31,31 @@ body {
   min-height: 100vh;
   background-color: #1E3F62; /* Match primary theme color */
 }
+
+/* Custom scrollbar for premium feel */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #e4e2e3; border-radius: 10px; }
+
+/* Floating Label Simulation */
+.floating-label-group { position: relative; }
+.floating-label-group input:focus ~ label,
+.floating-label-group input:not(:placeholder-shown) ~ label,
+.floating-label-group textarea:focus ~ label,
+.floating-label-group textarea:not(:placeholder-shown) ~ label,
+.floating-label-group select:focus ~ label,
+.floating-label-group select:not([value=""]):valid ~ label {
+    top: -10px;
+    font-size: 12px;
+    color: #735c00;
+    background-color: white;
+    padding: 0 4px;
+}
+.floating-label-group label {
+    position: absolute;
+    top: 14px;
+    left: 12px;
+    pointer-events: none;
+    transition: all 0.2s ease;
+    color: #74777d;
+}
