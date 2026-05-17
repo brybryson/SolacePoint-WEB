@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import TopNavBar from './TopNavBar';
 import logo from './assets/SolacePointLogo.png';
 import heroBg from './assets/LandingBackgroundPhoto.jpg';
+import ScrollReveal from './ScrollReveal';
 
 const LandingPage = () => {
+  const navigate = useNavigate();
   const [scrollY, setScrollY] = useState(0);
   const [visible, setVisible] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -15,7 +19,7 @@ const LandingPage = () => {
       author: "Julian Vance",
       title: "Founding Partner, Vance Global Holdings",
       rating: 5,
-      avatar: "/Users/macbookpro/.gemini/antigravity/brain/30c88fe7-325d-44ed-8026-18daec5f4d61/premium_client_portrait_1_1778855982298.png"
+      avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop"
     },
     {
       quote: "In the world of high-stakes logistics, certainty is a rare commodity. Solace Point provided the architectural foundation we needed to expand globally with absolute confidence.",
@@ -41,6 +45,10 @@ const LandingPage = () => {
   ];
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     if (!isAutoPlaying) return;
     const timer = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
@@ -51,7 +59,7 @@ const LandingPage = () => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.scrollY;
-      
+
       // Handle visibility (hide on scroll down, show on scroll up)
       setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 50);
       setPrevScrollPos(currentScrollPos);
@@ -69,56 +77,14 @@ const LandingPage = () => {
   return (
     <div className="bg-background font-body-md text-on-surface selection:bg-secondary/30 antialiased overflow-x-hidden">
       {/* TopNavBar */}
-      <nav 
-        className={`fixed w-full top-0 z-[100] transition-all duration-500 transform ${
-          visible ? 'translate-y-0' : '-translate-y-full'
-        }`}
-        style={{
-          backgroundColor: `rgba(255, 255, 255, ${navOpacity * 0.9})`,
-          backdropFilter: isAtTop ? 'none' : 'blur(12px)',
-          borderBottom: `1px solid rgba(0, 0, 0, ${navOpacity * 0.1})`
-        }}
-      >
-        <div className="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-20">
-          <a className="flex items-center gap-3 group" href="#">
-            <img 
-              alt="Solace Point Logo" 
-              className={`h-14 w-auto object-contain transition-all duration-500 ${
-                isAtTop ? 'brightness-0 invert' : ''
-              }`} 
-              src={logo}
-            />
-          </a>
-          <div className="hidden lg:flex items-center gap-10">
-            <a className={`transition-colors duration-500 font-semibold text-[11px] uppercase tracking-[0.2em] ${
-              isAtTop ? 'text-white hover:text-secondary' : 'text-on-surface/70 hover:text-primary'
-            }`} href="#">Experience</a>
-            <a className={`transition-colors duration-500 font-semibold text-[11px] uppercase tracking-[0.2em] ${
-              isAtTop ? 'text-white hover:text-secondary' : 'text-on-surface/70 hover:text-primary'
-            }`} href="#">Solutions</a>
-            <a className={`transition-colors duration-500 font-semibold text-[11px] uppercase tracking-[0.2em] ${
-              isAtTop ? 'text-white hover:text-secondary' : 'text-on-surface/70 hover:text-primary'
-            }`} href="#">Our Promise</a>
-            <a className={`transition-colors duration-500 font-semibold text-[11px] uppercase tracking-[0.2em] ${
-              isAtTop ? 'text-white hover:text-secondary' : 'text-on-surface/70 hover:text-primary'
-            }`} href="#">Insights</a>
-          </div>
-          <button className={`px-6 py-2.5 rounded-full font-bold text-[10px] uppercase tracking-[0.2em] transition-all duration-500 ${
-            isAtTop 
-              ? 'bg-white text-primary hover:bg-secondary hover:text-on-secondary-fixed' 
-              : 'bg-primary text-white hover:bg-on-surface'
-          }`}>
-            Secure Your Peace
-          </button>
-        </div>
-      </nav>
+      <TopNavBar scrollY={scrollY} visible={visible} navOpacity={navOpacity} isAtTop={isAtTop} theme="dark" />
 
       <section className="relative h-screen min-h-[700px] flex items-center pb-24 pt-20 overflow-hidden">
         <div className="absolute inset-0 z-0 overflow-hidden">
-          <img 
-            alt="Luxury background" 
-            className="w-full h-full object-cover" 
-            style={{ 
+          <img
+            alt="Luxury background"
+            className="w-full h-full object-cover"
+            style={{
               transform: `scale(${bgScale})`,
               transition: 'transform 0.1s ease-out'
             }}
@@ -126,28 +92,28 @@ const LandingPage = () => {
           />
           <div className="absolute inset-0 bg-primary/40 backdrop-brightness-75"></div>
         </div>
-        <div className="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:pl-0 md:pr-margin-desktop md:-translate-x-12">
+        <div className="relative z-10 w-full max-w-container-max mx-auto px-6 md:px-margin-desktop">
           <div className="max-w-2xl text-left">
             <div className="inline-flex items-center gap-3 mb-8">
               <div className="w-12 h-[1px] bg-secondary"></div>
               <span className="text-secondary text-[13px] font-bold uppercase tracking-[0.4em]">Architects of Stability</span>
             </div>
-            
+
             <h1 className="font-display-lg text-[clamp(44px,8vw,84px)] mb-8 leading-[1.1] font-bold text-white">
               We Don’t Just <br/>
               Sell Insurance.<br/>
               <span className="text-secondary font-black">We Sell Peace <br/> of Mind.</span>
             </h1>
-            
+
             <p className="font-body-lg text-lg md:text-xl mb-12 max-w-xl leading-relaxed text-white/90">
               Experience the profound quietude that comes from knowing you're truly protected. We bridge the gap between uncertainty and absolute resolution.
             </p>
-            
+
             <div className="flex flex-wrap items-center gap-10">
-              <button className="bg-secondary text-on-secondary-fixed px-12 py-5 font-bold text-sm rounded-full uppercase tracking-[0.2em] hover:bg-white transition-all duration-300 shadow-lg">
+              <button onClick={() => navigate('/quote')} className="bg-secondary text-on-secondary-fixed px-12 py-5 font-bold text-sm rounded-full uppercase tracking-[0.2em] hover:bg-white transition-all duration-300 shadow-lg">
                 Secure Your Peace
               </button>
-              
+
               <button className="group flex items-center gap-5 font-bold text-sm uppercase tracking-[0.2em] transition-all text-white hover:text-secondary">
                 <span className="pb-1">Our Methodology</span>
                 <span className="material-symbols-outlined text-2xl transition-transform group-hover:translate-x-2" data-icon="arrow_forward">arrow_forward</span>
@@ -159,62 +125,72 @@ const LandingPage = () => {
 
       {/* Peace of Mind Definition Section */}
       <section className="py-40 bg-surface">
-        <div className="max-w-container-max mx-auto px-margin-desktop">
+        <div className="max-w-container-max mx-auto px-6 md:px-margin-desktop">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-            <div className="space-y-12 lg:-translate-x-12">
-              <div>
-                <p className="text-tertiary font-bold tracking-[0.5em] uppercase mb-6 text-sm">The Solace Standard</p>
-                <h2 className="font-display-lg text-5xl md:text-6xl text-on-surface leading-tight font-bold">What Does True Peace of Mind <br className="hidden lg:block"/> Feel Like?</h2>
-              </div>
-              <div className="space-y-16">
-                <div className="flex gap-10 group">
-                  <div className="flex-shrink-0 w-20 flex items-baseline justify-center">
-                    <span className="font-display-lg text-6xl italic text-tertiary/60 leading-none">01</span>
-                  </div>
-                  <div>
-                    <h4 className="font-body-lg text-2xl mb-3 text-on-surface font-bold tracking-tight">Absolute Foresight</h4>
-                    <p className="text-on-surface-variant leading-relaxed text-lg max-w-md">Anticipating risks before they emerge, providing a protective layer that operates silently in the background of your life.</p>
-                  </div>
+            <ScrollReveal direction="up" distance="40px">
+              <div className="space-y-12 lg:-translate-x-12">
+                <div>
+                  <p className="text-tertiary font-bold tracking-[0.5em] uppercase mb-6 text-sm">The Solace Standard</p>
+                  <h2 className="font-display-lg text-5xl md:text-6xl text-on-surface leading-tight font-bold">What Does True Peace of Mind <br className="hidden lg:block"/> Feel Like?</h2>
                 </div>
-                
-                <div className="flex gap-10 group">
-                  <div className="flex-shrink-0 w-20 flex items-baseline justify-center">
-                    <span className="font-display-lg text-6xl italic text-tertiary/60 leading-none">02</span>
-                  </div>
-                  <div>
-                    <h4 className="font-body-lg text-2xl mb-3 text-on-surface font-bold tracking-tight">Unwavering Presence</h4>
-                    <p className="text-on-surface-variant leading-relaxed text-lg max-w-md">A promise that we are the first responders to your recovery. When the world feels unstable, we remain your constant.</p>
-                  </div>
+                <div className="space-y-16">
+                  <ScrollReveal delay={200} direction="up">
+                    <div className="flex gap-10 group">
+                      <div className="flex-shrink-0 w-20 flex items-baseline justify-center">
+                        <span className="font-display-lg text-6xl italic text-tertiary/60 leading-none">01</span>
+                      </div>
+                      <div>
+                        <h4 className="font-body-lg text-2xl mb-3 text-on-surface font-bold tracking-tight">Absolute Foresight</h4>
+                        <p className="text-on-surface-variant leading-relaxed text-lg max-w-md">Anticipating risks before they emerge, providing a protective layer that operates silently in the background of your life.</p>
+                      </div>
+                    </div>
+                  </ScrollReveal>
+
+                  <ScrollReveal delay={400} direction="up">
+                    <div className="flex gap-10 group">
+                      <div className="flex-shrink-0 w-20 flex items-baseline justify-center">
+                        <span className="font-display-lg text-6xl italic text-tertiary/60 leading-none">02</span>
+                      </div>
+                      <div>
+                        <h4 className="font-body-lg text-2xl mb-3 text-on-surface font-bold tracking-tight">Unwavering Presence</h4>
+                        <p className="text-on-surface-variant leading-relaxed text-lg max-w-md">A promise that we are the first responders to your recovery. When the world feels unstable, we remain your constant.</p>
+                      </div>
+                    </div>
+                  </ScrollReveal>
+
+                  <ScrollReveal delay={600} direction="up">
+                    <div className="flex gap-10 group">
+                      <div className="flex-shrink-0 w-20 flex items-baseline justify-center">
+                        <span className="font-display-lg text-6xl italic text-tertiary/60 leading-none">03</span>
+                      </div>
+                      <div>
+                        <h4 className="font-body-lg text-2xl mb-3 text-on-surface font-bold tracking-tight">Resolved Certainty</h4>
+                        <p className="text-on-surface-variant leading-relaxed text-lg max-w-md">The final point where worry ends. A lifestyle defined not by the risks you face, but by the security you possess.</p>
+                      </div>
+                    </div>
+                  </ScrollReveal>
                 </div>
-                
-                <div className="flex gap-10 group">
-                  <div className="flex-shrink-0 w-20 flex items-baseline justify-center">
-                    <span className="font-display-lg text-6xl italic text-tertiary/60 leading-none">03</span>
-                  </div>
-                  <div>
-                    <h4 className="font-body-lg text-2xl mb-3 text-on-surface font-bold tracking-tight">Resolved Certainty</h4>
-                    <p className="text-on-surface-variant leading-relaxed text-lg max-w-md">The final point where worry ends. A lifestyle defined not by the risks you face, but by the security you possess.</p>
-                  </div>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal delay={400} direction="left" distance="60px">
+              <div className="relative">
+                <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl relative">
+                  <img
+                    alt="Minimalist interior with calm lighting"
+                    className="w-full h-full object-cover"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmyf4Srd22Ejnb5ZrfRRVFxBeWzXddIaDWsD5WbnliXcLYWNara-HEPj1d4rpu13acOfmqqWvvhy0-cOiM1pXanK1q6AVJiW_-_gi88Zx7GwXB6HveoaFafW-78CVYC1DXOntKs4BjqR23ErvHdRv15dtNDHKAj1xQgN-dUQCMAvAenjO66LKxmV9YFihXbANrjx2_bRxZp_GoYRoV8G9NgNgyih14AiXg2NXRKibr6Y7BqnGHiyE9mT8xl5bHIcxLYTQ7xD_Kv4Y"
+                  />
+                  <div className="absolute inset-0 bg-primary/5"></div>
+                </div>
+                <div className="absolute -bottom-10 -left-10 bg-white p-8 rounded-[2.5rem] shadow-2xl border border-secondary/10 max-w-sm">
+                  <p className="font-display-lg text-2xl font-bold text-on-surface leading-snug relative z-10">
+                    "Security is the freedom to live without hesitation."
+                  </p>
+                  <div className="w-12 h-[1px] bg-tertiary my-6"></div>
+                  <p className="text-tertiary font-bold tracking-[0.5em] uppercase text-[10px]">The Solace Credo</p>
                 </div>
               </div>
-            </div>
-            <div className="relative">
-              <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl relative">
-                <img 
-                  alt="Minimalist interior with calm lighting" 
-                  className="w-full h-full object-cover" 
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmyf4Srd22Ejnb5ZrfRRVFxBeWzXddIaDWsD5WbnliXcLYWNara-HEPj1d4rpu13acOfmqqWvvhy0-cOiM1pXanK1q6AVJiW_-_gi88Zx7GwXB6HveoaFafW-78CVYC1DXOntKs4BjqR23ErvHdRv15dtNDHKAj1xQgN-dUQCMAvAenjO66LKxmV9YFihXbANrjx2_bRxZp_GoYRoV8G9NgNgyih14AiXg2NXRKibr6Y7BqnGHiyE9mT8xl5bHIcxLYTQ7xD_Kv4Y"
-                />
-                <div className="absolute inset-0 bg-primary/5"></div>
-              </div>
-              <div className="absolute -bottom-10 -left-10 bg-white p-8 rounded-[2.5rem] shadow-2xl border border-secondary/10 max-w-sm">
-                <p className="font-display-lg text-2xl font-bold text-on-surface leading-snug relative z-10">
-                  "Security is the freedom to live without hesitation."
-                </p>
-                <div className="w-12 h-[1px] bg-tertiary my-6"></div>
-                <p className="text-tertiary font-bold tracking-[0.5em] uppercase text-[10px]">The Solace Credo</p>
-              </div>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -225,46 +201,50 @@ const LandingPage = () => {
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
           <div className="absolute top-0 left-0 w-full h-full" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, #000 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
         </div>
-        
+
         <div className="max-w-[1400px] mx-auto relative z-10 px-4">
-          <div className="text-center mb-24">
-            <p className="font-bold text-xs uppercase tracking-[0.6em] text-tertiary mb-6">Credentialed Trust</p>
-            <h2 className="font-display-lg text-4xl md:text-5xl text-on-surface font-bold">Trusted by Discerning Clients</h2>
-          </div>
+          <ScrollReveal direction="up">
+            <div className="text-center mb-12">
+              <p className="font-bold text-xs uppercase tracking-[0.6em] text-tertiary mb-6">Credentialed Trust</p>
+              <h2 className="font-display-lg text-4xl md:text-5xl text-on-surface font-bold">Trusted by Discerning Clients</h2>
+            </div>
+          </ScrollReveal>
 
           {/* 3-Card Circular Carousel */}
-          <div className="relative h-[600px] md:h-[580px] max-w-5xl mx-auto">
+          <ScrollReveal delay={300} direction="up" distance="50px">
+            <div className="relative h-[600px] md:h-[580px] max-w-5xl mx-auto">
             <div className="relative w-full h-full flex items-center justify-center">
               {testimonials.map((t, index) => {
-                // Circular Logic: Calculate relative position (-1, 0, 1)
+                // Circular Logic: Calculate relative position (-1, 0, 1, 2)
                 let diff = index - currentTestimonial;
                 const len = testimonials.length;
-                
+
                 // Seamless wrap-around logic
-                if (diff > len / 2) diff -= len;
-                if (diff < -len / 2) diff += len;
+                while (diff > len / 2) diff -= len;
+                while (diff < -len / 2) diff += len;
 
                 const isActive = diff === 0;
                 const isLeft = diff === -1;
                 const isRight = diff === 1;
-                const isHidden = !isActive && !isLeft && !isRight;
+                const isBack = Math.abs(diff) >= 2;
 
                 return (
-                  <div 
+                  <div
                     key={index}
                     className={`absolute w-full max-w-[320px] md:max-w-[500px] transition-all duration-700 ease-in-out rounded-[2.5rem] shadow-2xl border border-outline-variant/30 bg-white overflow-hidden flex flex-col ${
-                      isHidden ? 'opacity-0 scale-75 pointer-events-none z-0' : 'opacity-100'
+                      isBack ? 'opacity-0 scale-75 pointer-events-none z-0' : 'opacity-100'
                     } ${
-                      isActive ? 'z-30 scale-100 translate-x-0' : 
-                      isLeft ? 'z-10 scale-90 -translate-x-[65%] md:-translate-x-[80%] opacity-40 blur-[2px]' : 
-                      isRight ? 'z-10 scale-90 translate-x-[65%] md:translate-x-[80%] opacity-40 blur-[2px]' : ''
+                      isActive ? 'z-30 scale-100 translate-x-0' :
+                      isLeft ? 'z-10 scale-90 -translate-x-[65%] md:-translate-x-[80%] opacity-40 blur-[2px]' :
+                      isRight ? 'z-10 scale-90 translate-x-[65%] md:translate-x-[80%] opacity-40 blur-[2px]' :
+                      'z-0 scale-75 translate-x-0 opacity-0'
                     }`}
                   >
                     {/* Portrait Section */}
                     <div className="relative h-[160px] md:h-[220px] flex-shrink-0">
-                      <img 
-                        src={t.avatar} 
-                        alt={t.author} 
+                      <img
+                        src={t.avatar}
+                        alt={t.author}
                         className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                       />
                       <div className="absolute inset-0 bg-primary/10"></div>
@@ -273,13 +253,13 @@ const LandingPage = () => {
                         <span className="text-[9px] font-bold uppercase tracking-widest text-primary">Verified</span>
                       </div>
                     </div>
-                    
+
                     {/* Content Section */}
                     <div className="p-7 md:p-10 flex flex-col min-h-[250px]">
                       <div className="mb-5 flex gap-1">
                         {[...Array(5)].map((_, i) => (
-                          <span 
-                            key={i} 
+                          <span
+                            key={i}
                             className={`material-symbols-outlined text-base ${i < t.rating ? 'text-secondary' : 'text-on-surface/10'}`}
                             style={{ fontVariationSettings: i < t.rating ? "'FILL' 1" : "'FILL' 0" }}
                           >
@@ -287,13 +267,13 @@ const LandingPage = () => {
                           </span>
                         ))}
                       </div>
-                      
+
                       <div className="flex-grow">
                         <p className="font-display-lg text-base md:text-xl italic text-on-surface leading-relaxed mb-6">
                           "{t.quote}"
                         </p>
                       </div>
-                      
+
                       <div className="pt-5 border-t border-outline-variant/10">
                         <p className="font-bold text-primary uppercase tracking-[0.2em] text-xs">{t.author}</p>
                         <p className="text-on-surface-variant text-[9px] mt-1 uppercase tracking-widest font-medium leading-relaxed">{t.title}</p>
@@ -303,10 +283,10 @@ const LandingPage = () => {
                 );
               })}
             </div>
-            
+
             {/* Navigation Controls */}
             <div className="absolute top-1/2 -translate-y-1/2 w-full flex justify-between md:-mx-16 pointer-events-none z-40">
-              <button 
+              <button
                 onClick={() => {
                   setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
                   setIsAutoPlaying(false);
@@ -315,7 +295,7 @@ const LandingPage = () => {
               >
                 <span className="material-symbols-outlined group-hover:-translate-x-1 transition-transform text-xl" data-icon="arrow_back">arrow_back</span>
               </button>
-              <button 
+              <button
                 onClick={() => {
                   setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
                   setIsAutoPlaying(false);
@@ -326,11 +306,12 @@ const LandingPage = () => {
               </button>
             </div>
           </div>
+        </ScrollReveal>
 
           {/* Navigation Indicators */}
           <div className="flex justify-center gap-3 mt-8">
             {testimonials.map((_, index) => (
-              <button 
+              <button
                 key={index}
                 onClick={() => {
                   setCurrentTestimonial(index);
@@ -359,11 +340,11 @@ const LandingPage = () => {
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           {/* Subtle Drafting Grid */}
           <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: 'linear-gradient(#000 0.5px, transparent 0.5px), linear-gradient(90deg, #000 0.5px, transparent 0.5px)', backgroundSize: '100px 100px' }}></div>
-          
+
           {/* Elegant Architectural Lines (Gold) */}
           <div className="absolute top-0 left-1/4 w-[1px] h-full bg-gradient-to-b from-transparent via-tertiary/20 to-transparent"></div>
           <div className="absolute top-1/4 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-tertiary/20 to-transparent"></div>
-          
+
           {/* Soft Luxury Glows */}
           <div className="absolute -top-[20%] -right-[10%] w-[60%] h-[60%] bg-secondary/5 rounded-full blur-[120px]"></div>
           <div className="absolute -bottom-[20%] -left-[10%] w-[60%] h-[60%] bg-tertiary/5 rounded-full blur-[120px]"></div>
@@ -373,119 +354,100 @@ const LandingPage = () => {
           <div className="absolute bottom-20 right-20 w-32 h-32 border-r border-b border-tertiary/30 opacity-50"></div>
         </div>
 
-        <div className="max-w-container-max mx-auto px-margin-desktop relative z-10">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
-            <div className="max-w-2xl">
-              <p className="text-tertiary font-bold tracking-[0.5em] uppercase mb-6 text-sm">Curated Solutions</p>
-              <h2 className="font-display-lg text-5xl md:text-6xl text-on-surface font-bold">Protection Architected <br/>for Your Legacy</h2>
+        <div className="max-w-container-max mx-auto px-6 md:px-margin-desktop relative z-10">
+          <ScrollReveal direction="up">
+            <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+              <div className="max-w-2xl">
+                <p className="text-tertiary font-bold tracking-[0.5em] uppercase mb-6 text-sm">Curated Solutions</p>
+                <h2 className="font-display-lg text-5xl md:text-6xl text-on-surface font-bold">Protection Architected <br/>for Your Legacy</h2>
+              </div>
+              <button onClick={() => navigate('/products')} className="group flex items-center gap-4 font-bold text-xs uppercase tracking-[0.3em] text-tertiary pb-3 border-b-2 border-secondary/30 hover:border-tertiary transition-all cursor-pointer">
+                View All Products
+                <span className="material-symbols-outlined transition-transform duration-300 group-hover:translate-x-2" data-icon="arrow_right_alt">arrow_right_alt</span>
+              </button>
             </div>
-            <a className="group flex items-center gap-4 font-bold text-xs uppercase tracking-[0.3em] text-tertiary pb-3 border-b-2 border-secondary/30 hover:border-tertiary transition-all" href="#">
-              View All Solutions
-              <span className="material-symbols-outlined transition-transform duration-300 group-hover:translate-x-2" data-icon="arrow_right_alt">arrow_right_alt</span>
-            </a>
-          </div>
+          </ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Home & Property */}
-            <div className="group bg-surface p-12 border border-outline-variant/40 rounded-2xl hover:bg-white hover:shadow-2xl transition-all duration-500 flex flex-col h-full">
-              <div className="mb-10 text-primary group-hover:scale-110 transition-transform duration-300">
-                <span className="material-symbols-outlined text-6xl" data-icon="home_pin">home_pin</span>
-              </div>
-              <h3 className="font-headline-md text-2xl text-on-surface mb-6 font-bold">Residential Sanctuary</h3>
-              <p className="font-body-md text-on-surface-variant mb-12 leading-relaxed flex-grow">Advanced fire and property protection that safeguards the hearth of your family’s history.</p>
-              <button className="text-tertiary font-bold text-xs uppercase tracking-widest flex items-center gap-3 group/btn">
-                Explore Solution
-                <span className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center group-hover/btn:bg-tertiary group-hover/btn:text-white transition-colors">
-                  <span className="material-symbols-outlined text-lg" data-icon="chevron_right">chevron_right</span>
-                </span>
-              </button>
-            </div>
-            {/* Mobility */}
-            <div className="group bg-surface p-12 border border-outline-variant/40 rounded-2xl hover:bg-white hover:shadow-2xl transition-all duration-500 flex flex-col h-full">
-              <div className="mb-10 text-primary group-hover:scale-110 transition-transform duration-300">
-                <span className="material-symbols-outlined text-6xl" data-icon="explore">explore</span>
-              </div>
-              <h3 className="font-headline-md text-2xl text-on-surface mb-6 font-bold">Guided Transit</h3>
-              <p className="font-body-md text-on-surface-variant mb-12 leading-relaxed flex-grow">Premium mobility coverage for land and sea, ensuring your journey remains uninterrupted.</p>
-              <button className="text-tertiary font-bold text-xs uppercase tracking-widest flex items-center gap-3 group/btn">
-                Explore Solution
-                <span className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center group-hover/btn:bg-tertiary group-hover/btn:text-white transition-colors">
-                  <span className="material-symbols-outlined text-lg" data-icon="chevron_right">chevron_right</span>
-                </span>
-              </button>
-            </div>
-            {/* Life */}
-            <div className="group bg-surface p-12 border border-outline-variant/40 rounded-2xl hover:bg-white hover:shadow-2xl transition-all duration-500 flex flex-col h-full">
-              <div className="mb-10 text-primary group-hover:scale-110 transition-transform duration-300">
-                <span className="material-symbols-outlined text-6xl" data-icon="shield_with_heart">shield_with_heart</span>
-              </div>
-              <h3 className="font-headline-md text-2xl text-on-surface mb-6 font-bold">Kinred Vitality</h3>
-              <p className="font-body-md text-on-surface-variant mb-12 leading-relaxed flex-grow">Bespoke life and wellness architecture for those who mean everything to you.</p>
-              <button className="text-tertiary font-bold text-xs uppercase tracking-widest flex items-center gap-3 group/btn">
-                Explore Solution
-                <span className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center group-hover/btn:bg-tertiary group-hover/btn:text-white transition-colors">
-                  <span className="material-symbols-outlined text-lg" data-icon="chevron_right">chevron_right</span>
-                </span>
-              </button>
-            </div>
-            {/* Business */}
-            <div className="group bg-surface p-12 border border-outline-variant/40 rounded-2xl hover:bg-white hover:shadow-2xl transition-all duration-500 flex flex-col h-full">
-              <div className="mb-10 text-primary group-hover:scale-110 transition-transform duration-300">
-                <span className="material-symbols-outlined text-6xl" data-icon="anchor">anchor</span>
-              </div>
-              <h3 className="font-headline-md text-2xl text-on-surface mb-6 font-bold">Venture Stability</h3>
-              <p className="font-body-md text-on-surface-variant mb-12 leading-relaxed flex-grow">Strategic commercial bonds and casualty insurance designed for the modern innovator.</p>
-              <button className="text-tertiary font-bold text-xs uppercase tracking-widest flex items-center gap-3 group/btn">
-                Explore Solution
-                <span className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center group-hover/btn:bg-tertiary group-hover/btn:text-white transition-colors">
-                  <span className="material-symbols-outlined text-lg" data-icon="chevron_right">chevron_right</span>
-                </span>
-              </button>
-            </div>
+            {[
+              { id: '01', title: 'Residential Sanctuary', icon: 'home_pin', desc: 'Advanced fire and property protection that safeguards the hearth of your family’s history.' },
+              { id: '02', title: 'Guided Transit', icon: 'explore', desc: 'Premium mobility coverage for land and sea, ensuring your journey remains uninterrupted.' },
+              { id: '03', title: 'Kindred Vitality', icon: 'shield_with_heart', desc: 'Bespoke life and wellness architecture for those who mean everything to you.' },
+              { id: '04', title: 'Venture Stability', icon: 'anchor', desc: 'Strategic commercial bonds and casualty insurance designed for the modern innovator.' }
+            ].map((solution, idx) => (
+              <ScrollReveal key={solution.id} delay={idx * 100} direction="up">
+                <div className="group relative bg-surface p-12 border border-outline-variant/30 rounded-3xl hover:bg-white hover:shadow-[0_20px_50px_-15px_rgba(30,63,98,0.12)] transition-all duration-500 flex flex-col h-full overflow-hidden">
+                  <div className="mb-10 text-primary group-hover:scale-110 transition-transform duration-500 group-hover:text-tertiary">
+                    <span className="material-symbols-outlined text-6xl" data-icon={solution.icon}>{solution.icon}</span>
+                  </div>
+
+                  <h3 className="font-body-lg text-2xl mb-5 text-on-surface font-bold tracking-tight">
+                    {solution.title}
+                  </h3>
+
+                  <p className="font-body-md text-on-surface-variant mb-12 leading-relaxed flex-grow">
+                    {solution.desc}
+                  </p>
+
+                  <div className="mt-auto">
+                    <button className="group/btn flex items-center gap-3 text-tertiary font-bold text-xs uppercase tracking-widest hover:text-primary transition-colors">
+                      Explore Solution
+                      <span className="material-symbols-outlined text-xl transition-transform duration-300 group-hover/btn:translate-x-2" data-icon="arrow_right_alt">arrow_right_alt</span>
+                    </button>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Methodology Section */}
       <section className="py-40 bg-surface overflow-hidden">
-        <div className="max-w-container-max mx-auto px-margin-desktop">
-          <div className="text-center mb-24 max-w-3xl mx-auto">
-            <span className="text-tertiary font-bold tracking-[0.5em] uppercase mb-6 block text-sm">Our Methodology</span>
-            <h2 className="font-display-lg text-5xl md:text-6xl text-on-surface mb-8 font-bold">The Architecture of Resolution</h2>
-            <p className="font-body-lg text-on-surface-variant leading-relaxed text-xl">
-              We navigate the transition from distress to total resolution through a systematic, calm, and authoritative process.
-            </p>
-          </div>
-          <div className="max-w-5xl mx-auto mb-24">
-            <div className="relative bg-white rounded-[2rem] shadow-xl p-8 md:p-16 overflow-hidden border border-outline-variant/20">
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 to-transparent opacity-50"></div>
-              <img 
-                alt="Infographic showing transition from distress to Solace Point" 
-                className="relative z-10 w-full h-auto" 
-                src="https://lh3.googleusercontent.com/aida/ADBb0uhaT8k2BVDtGesC32Ep-M8-Za8H3vJTijvwsQe5bsrpNF7BEfxgPDdJGV7tvfnZBQrmp6JOUaAJWNwp1OOP7pNypLDIJcUEgzt3v32ZWcAnXwwZiui7Jl_kpJnIDIxg0LCF3aDrS1ktDlucG5jl_G_9CO_kITUBP6SQCjrEOp5hAsVTXete5P7JGxHUEK0jKEJzrTWTWb1eYZB_rx6r7dDc7Rm4YyUsC0HhIAwvJFQbgHt5p6_ZtW9h7zU"
-              />
+        <div className="max-w-container-max mx-auto px-6 md:px-margin-desktop">
+          <ScrollReveal direction="up">
+            <div className="text-center mb-24 max-w-3xl mx-auto">
+              <span className="text-tertiary font-bold tracking-[0.5em] uppercase mb-6 block text-sm">Our Methodology</span>
+              <h2 className="font-display-lg text-5xl md:text-6xl text-on-surface mb-8 font-bold">The Architecture of Resolution</h2>
+              <p className="font-body-lg text-on-surface-variant leading-relaxed text-xl">
+                We navigate the transition from distress to total resolution through a systematic, calm, and authoritative process.
+              </p>
             </div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
-            <div className="text-center px-6 group">
-              <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center mx-auto mb-8 border border-outline-variant/30 group-hover:border-primary transition-colors shadow-sm">
-                <span className="text-3xl font-display-lg italic text-primary/60">01</span>
-              </div>
-              <h4 className="font-headline-md text-2xl mb-4 text-on-surface font-bold">Initial Distress</h4>
-              <p className="text-on-surface-variant leading-relaxed">Mapping the chaos of risk into a manageable framework of needs.</p>
-            </div>
-            <div className="text-center px-6 group">
-              <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center mx-auto mb-8 border border-outline-variant/30 group-hover:border-primary transition-colors shadow-sm">
-                <span className="text-3xl font-display-lg italic text-primary/60">02</span>
-              </div>
-              <h4 className="font-headline-md text-2xl mb-4 text-on-surface font-bold">Strategic Recovery</h4>
-              <p className="text-on-surface-variant leading-relaxed">Deploying the bridge of resources that leads back to solid ground.</p>
-            </div>
-            <div className="text-center px-6 group">
-              <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center mx-auto mb-8 shadow-2xl shadow-primary/30 group-hover:scale-110 transition-transform">
-                <span className="material-symbols-outlined text-white text-3xl font-bold" data-icon="auto_awesome">auto_awesome</span>
-              </div>
-              <h4 className="font-headline-md text-2xl mb-4 text-on-surface font-bold">Solace Point</h4>
-              <p className="text-on-surface-variant leading-relaxed">The attainment of absolute security and long-term resolution.</p>
+          </ScrollReveal>
+          {/* Revised Methodology: Minimalist Narrative Process Flow */}
+          <div className="mt-24">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-20">
+              {/* Step 01: Initial Distress */}
+              <ScrollReveal delay={100} direction="up">
+                <div className="text-left group border-t border-outline-variant/30 pt-8 hover:border-tertiary transition-colors duration-500">
+                  <span className="font-display-lg text-6xl text-tertiary/60 font-light italic mb-6 block group-hover:text-tertiary transition-colors duration-500">01</span>
+                  <h4 className="font-body-lg text-2xl mb-4 text-on-surface font-bold tracking-tight">Initial Distress</h4>
+                  <p className="text-on-surface-variant leading-relaxed text-sm md:text-base pr-4">
+                    Mapping the chaos of risk into a manageable, architected framework of needs.
+                  </p>
+                </div>
+              </ScrollReveal>
+
+              {/* Step 02: Strategic Recovery */}
+              <ScrollReveal delay={300} direction="up">
+                <div className="text-left group border-t border-outline-variant/30 pt-8 hover:border-tertiary transition-colors duration-500">
+                  <span className="font-display-lg text-6xl text-tertiary/60 font-light italic mb-6 block group-hover:text-tertiary transition-colors duration-500">02</span>
+                  <h4 className="font-body-lg text-2xl mb-4 text-on-surface font-bold tracking-tight">Strategic Recovery</h4>
+                  <p className="text-on-surface-variant leading-relaxed text-sm md:text-base pr-4">
+                    Deploying the bridge of resources that leads back to stable, solid ground.
+                  </p>
+                </div>
+              </ScrollReveal>
+
+              {/* Step 03: Solace Point */}
+              <ScrollReveal delay={500} direction="up">
+                <div className="text-left group border-t border-outline-variant/30 pt-8 hover:border-tertiary transition-colors duration-500">
+                  <span className="font-display-lg text-6xl text-tertiary/60 font-light italic mb-6 block group-hover:text-tertiary transition-colors duration-500">03</span>
+                  <h4 className="font-body-lg text-2xl mb-4 text-on-surface font-bold tracking-tight">Solace Point</h4>
+                  <p className="text-on-surface-variant leading-relaxed text-sm md:text-base pr-4">
+                    The final attainment of absolute security and long-term resolution.
+                  </p>
+                </div>
+              </ScrollReveal>
             </div>
           </div>
         </div>
@@ -497,49 +459,53 @@ const LandingPage = () => {
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-white/10 rounded-full blur-[140px] -translate-y-1/2 translate-x-1/3"></div>
           <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-white/10 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/4"></div>
         </div>
-        <div className="max-w-container-max mx-auto px-margin-desktop relative z-10 text-center">
-          <h2 className="font-display-lg text-5xl md:text-7xl mb-12 font-bold leading-tight">Ready to Secure Your Peace?</h2>
-          <p className="font-body-lg text-xl md:text-2xl text-white/80 mb-20 max-w-2xl mx-auto leading-relaxed">
-            Join the collective of individuals and businesses who have chosen to live life at the exact point where worry ends.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-8">
-            <button className="bg-secondary text-on-secondary-fixed px-16 py-7 font-bold text-sm rounded-full uppercase tracking-[0.3em] hover:bg-secondary-container transition-all shadow-xl w-full sm:w-auto">
-              Get Secured Now
-            </button>
-            <button className="border-2 border-white/40 text-white hover:bg-white hover:text-primary px-16 py-7 font-bold text-sm rounded-full uppercase tracking-[0.3em] transition-all backdrop-blur-sm w-full sm:w-auto">
-              Speak with an Advisor
-            </button>
-          </div>
+        <div className="max-w-container-max mx-auto px-6 md:px-margin-desktop relative z-10 text-center">
+          <ScrollReveal direction="up" distance="50px">
+            <h2 className="font-display-lg text-5xl md:text-7xl mb-12 font-bold leading-tight">Ready to Secure Your Peace?</h2>
+            <p className="font-body-lg text-xl md:text-2xl text-white/80 mb-20 max-w-2xl mx-auto leading-relaxed">
+              Join the collective of individuals and businesses who have chosen to live life at the exact point where worry ends.
+            </p>
+          </ScrollReveal>
+          <ScrollReveal delay={400} direction="up">
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-8">
+              <button onClick={() => navigate('/quote')} className="bg-secondary text-on-secondary-fixed px-16 py-7 font-bold text-sm rounded-full uppercase tracking-[0.3em] hover:bg-secondary-container transition-all shadow-xl w-full sm:w-auto">
+                Get a Quote
+              </button>
+              <button onClick={() => navigate('/contact')} className="border-2 border-white/40 text-white hover:bg-white hover:text-primary px-16 py-7 font-bold text-sm rounded-full uppercase tracking-[0.3em] transition-all backdrop-blur-sm w-full sm:w-auto">
+                Speak with an Advisor
+              </button>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-surface pt-32 pb-16 px-margin-desktop border-t border-outline-variant/30">
+      <footer className="bg-surface pt-32 pb-16 px-6 md:px-margin-desktop border-t border-outline-variant/30">
         <div className="max-w-container-max mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-20 mb-32">
             <div className="lg:col-span-5">
-              <img 
-                alt="Solace Point Logo" 
-                className="h-16 w-auto mb-10 object-contain" 
+              <img
+                alt="Solace Point Logo"
+                className="h-28 w-auto mb-10 object-contain"
                 src={logo}
               />
               <p className="font-body-md text-on-surface-variant mb-12 leading-relaxed max-w-sm text-lg">
                 A premium insurance agency dedicated to the architecture of security. We provide the foundation upon which your future is built.
               </p>
               <div className="flex gap-6">
-                <a className="w-14 h-14 rounded-full border border-outline-variant flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm" href="#">
-                  <span className="material-symbols-outlined text-2xl" data-icon="public">public</span>
+                <a className="w-14 h-14 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:border-primary hover:text-primary transition-all duration-300 shadow-sm" href="#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
                 </a>
-                <a className="w-14 h-14 rounded-full border border-outline-variant flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm" href="#">
-                  <span className="material-symbols-outlined text-2xl" data-icon="shield">shield</span>
+                <a className="w-14 h-14 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:border-primary hover:text-primary transition-all duration-300 shadow-sm" href="#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/></svg>
                 </a>
-                <a className="w-14 h-14 rounded-full border border-outline-variant flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm" href="#">
-                  <span className="material-symbols-outlined text-2xl" data-icon="verified">verified</span>
+                <a className="w-14 h-14 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:border-primary hover:text-primary transition-all duration-300 shadow-sm" href="#">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
                 </a>
               </div>
             </div>
             <div className="lg:col-span-2">
-              <h5 className="font-bold uppercase tracking-[0.4em] text-tertiary text-xs mb-10">Solutions</h5>
+              <h5 className="font-bold uppercase tracking-[0.4em] text-tertiary text-xs mb-10">Quick Links</h5>
               <ul className="space-y-6">
                 <li className=""><a className="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium tracking-wide" href="#">Residential</a></li>
                 <li className=""><a className="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium tracking-wide" href="#">Commercial</a></li>
@@ -560,9 +526,9 @@ const LandingPage = () => {
               <h5 className="font-bold uppercase tracking-[0.4em] text-tertiary text-xs mb-10">Newsletter</h5>
               <p className="text-on-surface-variant text-sm mb-8 leading-relaxed">Receive curated insights on risk management and financial peace.</p>
               <div className="flex flex-col gap-4">
-                <input 
-                  className="bg-surface-container-low border border-outline-variant/40 rounded-full px-6 py-4 w-full text-on-surface placeholder-on-surface-variant/50 focus:ring-2 focus:ring-primary outline-none transition-all" 
-                  placeholder="Email Address" 
+                <input
+                  className="bg-surface-container-low border border-outline-variant/40 rounded-full px-6 py-4 w-full text-on-surface placeholder-on-surface-variant/50 focus:ring-2 focus:ring-primary outline-none transition-all"
+                  placeholder="Email Address"
                   type="email"
                 />
                 <button className="bg-primary text-white px-8 py-4 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-on-surface transition-all shadow-lg">Join the Circle</button>
@@ -571,15 +537,11 @@ const LandingPage = () => {
           </div>
           <div className="pt-12 border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center gap-8">
             <p className="font-body-md text-xs text-on-surface-variant/70 uppercase tracking-widest">
-              © 2024 Solace Point Insurance Agency. All rights reserved. Registered Architectural Insurance Firm.
+              © 2026 Solace Point Insurance Agency. All rights reserved.
             </p>
             <div className="flex items-center gap-10 text-[10px] text-on-surface-variant/60 uppercase tracking-[0.3em]">
-              <a className="hover:text-primary transition-colors" href="#">Privacy Policy</a>
-              <a className="hover:text-primary transition-colors" href="#">Terms of Service</a>
-              <span className="flex items-center gap-3">
-                <span className="w-2 h-2 rounded-full bg-tertiary"></span>
-                Secure Connection
-              </span>
+              <a className="hover:text-primary transition-colors whitespace-nowrap" href="#">Privacy Policy</a>
+              <a className="hover:text-primary transition-colors whitespace-nowrap" href="#">Terms of Service</a>
             </div>
           </div>
         </div>
