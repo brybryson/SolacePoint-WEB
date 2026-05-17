@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Get a Quote | Solace Point Insurance</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Montserrat:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#38250d",
+                    "on-tertiary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "surface-container": "#efedef",
+                    "inverse-on-surface": "#f2f0f1",
+                    "inverse-surface": "#303032",
+                    "surface-container-lowest": "#ffffff",
+                    "on-background": "#1b1c1d",
+                    "secondary-container": "#fed65b",
+                    "error-container": "#ffdad6",
+                    "tertiary-fixed": "#ffddb9",
+                    "surface": "#fbf9fa",
+                    "surface-container-low": "#f5f3f4",
+                    "secondary-fixed": "#ffe088",
+                    "primary": "#041525",
+                    "on-tertiary-fixed-variant": "#594328",
+                    "on-secondary-container": "#745c00",
+                    "inverse-primary": "#b7c8dd",
+                    "on-secondary-fixed-variant": "#574500",
+                    "secondary": "#735c00",
+                    "surface-container-highest": "#e4e2e3",
+                    "on-primary-fixed-variant": "#384859",
+                    "primary-fixed": "#d3e4fa",
+                    "on-tertiary-container": "#a88b6b",
+                    "on-primary-container": "#8191a5",
+                    "surface-tint": "#506072",
+                    "on-error": "#ffffff",
+                    "error": "#ba1a1a",
+                    "outline-variant": "#c4c6cc",
+                    "on-surface-variant": "#44474c",
+                    "on-secondary-fixed": "#241a00",
+                    "primary-container": "#1a2a3a",
+                    "tertiary": "#211100",
+                    "surface-bright": "#fbf9fa",
+                    "secondary-fixed-dim": "#e9c349",
+                    "on-surface": "#1b1c1d",
+                    "surface-dim": "#dbd9db",
+                    "primary-fixed-dim": "#b7c8dd",
+                    "on-primary-fixed": "#0c1d2c",
+                    "background": "#fbf9fa",
+                    "outline": "#74777d",
+                    "surface-container-high": "#eae7e9",
+                    "on-tertiary-fixed": "#291803",
+                    "tertiary-fixed-dim": "#e2c19e",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#e4e2e3",
+                    "on-secondary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "margin-desktop": "48px",
+                    "base": "8px",
+                    "gutter": "24px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Playfair Display"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "caption": ["Montserrat"],
+                    "body-lg": ["Montserrat"],
+                    "headline-sm": ["Playfair Display"],
+                    "body-md": ["Montserrat"],
+                    "label-md": ["Montserrat"],
+                    "display-lg": ["Playfair Display"]
+            },
+            "fontSize": {
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "display-lg-mobile": ["36px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Custom scrollbar for premium feel */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #e4e2e3; border-radius: 10px; }
+
+        /* Floating Label Simulation */
+        .floating-label-group { position: relative; }
+        .floating-label-group input:focus ~ label,
+        .floating-label-group input:not(:placeholder-shown) ~ label,
+        .floating-label-group select:focus ~ label,
+        .floating-label-group select:not([value=""]):valid ~ label {
+            top: -10px;
+            font-size: 12px;
+            color: #735c00;
+            background-color: white;
+            padding: 0 4px;
+        }
+        .floating-label-group label {
+            position: absolute;
+            top: 14px;
+            left: 12px;
+            pointer-events: none;
+            transition: all 0.2s ease;
+            color: #74777d;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md">
+<!-- TopNavBar Component -->
+<header class="bg-surface/95 backdrop-blur-md border-b border-outline-variant/30 docked full-width top-0 sticky z-50 h-20">
+<div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-full">
+<div class="font-headline-sm text-headline-sm font-bold text-primary">Solace Point</div>
+<nav class="hidden md:flex gap-gutter items-center">
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md text-label-md" href="#">Protection</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md text-label-md" href="#">Claims</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md text-label-md" href="#">Resources</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-md text-label-md" href="#">About</a>
+</nav>
+<button class="bg-secondary text-on-secondary px-6 py-3 rounded-DEFAULT font-label-md text-label-md active:scale-95 transition-transform duration-200">
+                Secure Your Peace
+            </button>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16 md:py-24">
+<div class="flex flex-col md:flex-row gap-16 md:gap-24 items-start">
+<!-- Left Column: Content & Identity -->
+<div class="w-full md:w-1/2 md:sticky md:top-32">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-secondary/10 text-secondary font-label-md text-label-md tracking-wider mb-6">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+                    ✨ FREE QUOTE IN MINUTES
+                </div>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6 leading-tight">
+                    Get Your Free Insurance Quote Today
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-lg">
+                    Compare rates from multiple top providers and find the perfect coverage for your needs — all in one place.
+                </p>
+<!-- Features Vertical Stack -->
+<div class="space-y-6 mb-12">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="corporate_fare">corporate_fare</span>
+</div>
+<span class="font-label-md text-label-md">Multiple top providers</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+</div>
+<span class="font-label-md text-label-md">Best rates guaranteed</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="schedule">schedule</span>
+</div>
+<span class="font-label-md text-label-md">Fast quote turnaround</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="shield">shield</span>
+</div>
+<span class="font-label-md text-label-md">Comprehensive coverage</span>
+</div>
+</div>
+<!-- Proof Metrics Grid -->
+<div class="grid grid-cols-3 gap-gutter py-8 border-y border-outline-variant/30 mb-12">
+<div>
+<div class="font-headline-sm text-headline-sm text-primary mb-1">10+</div>
+<div class="font-caption text-caption text-on-surface-variant">Insurance Partners</div>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-primary mb-1">5,000+</div>
+<div class="font-caption text-caption text-on-surface-variant">Happy Clients</div>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-primary mb-1">100%</div>
+<div class="font-caption text-caption text-on-surface-variant">Licensed Agents</div>
+</div>
+</div>
+<!-- Direct Support Box -->
+<div class="bg-surface-container-low p-6 rounded-lg border border-outline-variant/20">
+<h3 class="font-label-md text-label-md text-primary mb-4">Speak directly with an advisor</h3>
+<div class="space-y-3">
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]" data-icon="call">call</span>
+<span class="font-body-md text-body-md">(044) 761 8023</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]" data-icon="mail">mail</span>
+<span class="font-body-md text-body-md">sales@onenetworx.net</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]" data-icon="alternate_email">alternate_email</span>
+<span class="font-body-md text-body-md">@onenetworxinsurance</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Form Card -->
+<div class="w-full md:w-1/2">
+<div class="bg-white rounded-xl shadow-[0_16px_40px_-12px_rgba(4,21,37,0.08)] border border-outline-variant/20 p-8 md:p-12">
+<div class="mb-10">
+<h2 class="font-headline-md text-headline-md text-primary mb-2">Request Your Quote</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Fill out the form and we will get back to you shortly.</p>
+</div>
+<form class="space-y-6">
+<!-- Form Fields -->
+<div class="floating-label-group">
+<input class="w-full h-14 border border-outline px-4 rounded-lg focus:border-secondary focus:ring-1 focus:ring-secondary transition-all outline-none bg-transparent" id="name" placeholder=" " required="" type="text"/>
+<label class="font-label-md text-label-md" for="name">Name*</label>
+</div>
+<div class="floating-label-group">
+<input class="w-full h-14 border border-outline px-4 rounded-lg focus:border-secondary focus:ring-1 focus:ring-secondary transition-all outline-none bg-transparent" id="email" placeholder=" " required="" type="email"/>
+<label class="font-label-md text-label-md" for="email">Email*</label>
+</div>
+<div class="floating-label-group">
+<input class="w-full h-14 border border-outline px-4 rounded-lg focus:border-secondary focus:ring-1 focus:ring-secondary transition-all outline-none bg-transparent" id="cellphone" placeholder=" " required="" type="tel"/>
+<label class="font-label-md text-label-md" for="cellphone">Cellphone (0917XXXXXXX)*</label>
+</div>
+<div class="floating-label-group">
+<select class="w-full h-14 border border-outline px-4 rounded-lg focus:border-secondary focus:ring-1 focus:ring-secondary transition-all outline-none bg-transparent appearance-none" id="type" required="">
+<option disabled="" hidden="" selected="" value=""></option>
+<option value="motor">Motor Car</option>
+<option value="fire">Fire</option>
+<option value="marine">Marine</option>
+<option value="pa">Personal Accident</option>
+<option value="travel">Travel Secure</option>
+<option value="pet">Pet Secure</option>
+<option value="tnvs">TNVS Secure</option>
+<option value="casualty">Casualty</option>
+<option value="eng">Engineering</option>
+<option value="bonds">Bonds</option>
+<option value="other">Other</option>
+</select>
+<label class="font-label-md text-label-md" for="type">Insurance Type Dropdown*</label>
+<div class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+<span class="material-symbols-outlined text-outline">expand_more</span>
+</div>
+</div>
+<div class="floating-label-group">
+<input class="w-full h-14 border border-outline px-4 rounded-lg focus:border-secondary focus:ring-1 focus:ring-secondary transition-all outline-none bg-transparent" id="property" placeholder=" " required="" type="text"/>
+<label class="font-label-md text-label-md" for="property">Property to be Insured*</label>
+</div>
+<div class="floating-label-group">
+<input class="w-full h-14 border border-outline px-4 rounded-lg focus:border-secondary focus:ring-1 focus:ring-secondary transition-all outline-none bg-transparent" id="amount" placeholder=" " required="" type="number"/>
+<label class="font-label-md text-label-md" for="amount">Estimated Amount (₱)*</label>
+</div>
+<div class="floating-label-group">
+<textarea class="w-full min-h-[120px] border border-outline p-4 rounded-lg focus:border-secondary focus:ring-1 focus:ring-secondary transition-all outline-none bg-transparent resize-none" id="details" placeholder=" "></textarea>
+<label class="font-label-md text-label-md" for="details">Additional Details</label>
+</div>
+<!-- CTA Button -->
+<button class="w-full bg-secondary text-on-secondary h-16 rounded-lg font-label-md text-label-md flex items-center justify-center gap-2 hover:bg-secondary-container hover:text-on-secondary-container transition-colors shadow-lg shadow-secondary/20" type="submit">
+                            Get My Free Quote
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<p class="font-caption text-caption text-center text-on-surface-variant mt-4">
+                            By submitting this form, you agree to our <a class="underline text-primary" href="#">Privacy Policy</a> and <a class="underline text-primary" href="#">Terms of Service</a>.
+                        </p>
+</form>
+</div>
+<!-- Trust Image / Graphic -->
+<div class="mt-12 rounded-xl overflow-hidden aspect-[16/9] relative">
+<img alt="Professional Advisor" class="w-full h-full object-cover" data-alt="A professional insurance advisor in a high-end corporate office setting. The person is dressed in business attire, smiling warmly while working on a laptop in a bright, sun-drenched glass-walled workspace. The color palette is composed of soft whites, warm wood tones, and deep blue accents, reflecting a sense of stability, protection, and modern premium service." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJlsGAXiNL38Pb3UpIsPL54Opm0CwL34rh7cd5Zs1LrV4izvwUZYgf0eQF0JOOJEc9fFe0v5TSyJZ9RjAX5_7xJR0DIc1HGZ9m32to4oMRdTnjkbr0S_j3Rhul4vBgI9FW3AxZ8IOzqyfZI-vbqm4wRHlQB6TDiv4P3hDvzle3A0M-FrhL56lpnyGfKBzWBMHZ_6tCNNI22T4i1cHwYZOY4qzPeGGDD48zLlVeCmjywvvsrbfFWPfqCFYw0IRDYyFXuRqBJXanRHw"/>
+<div class="absolute inset-0 bg-primary/20 flex items-center justify-center">
+<div class="bg-white/90 backdrop-blur px-8 py-4 rounded-full flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">security</span>
+<span class="font-label-md text-label-md text-primary">Regulated &amp; Licensed Agency</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Component -->
+<footer class="bg-surface-container-highest border-t border-outline-variant/20 w-full py-16 px-margin-desktop flex flex-col items-center gap-base">
+<div class="max-w-container-max w-full flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
+<div class="font-headline-sm text-headline-sm text-primary">Solace Point</div>
+<div class="flex flex-wrap justify-center gap-gutter">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md opacity-80 hover:opacity-100 duration-200" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md opacity-80 hover:opacity-100 duration-200" href="#">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md opacity-80 hover:opacity-100 duration-200" href="#">Compliance</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md opacity-80 hover:opacity-100 duration-200" href="#">Contact Us</a>
+</div>
+</div>
+<div class="w-full border-t border-outline-variant/30 pt-8 flex justify-center">
+<p class="font-body-md text-body-md text-on-surface opacity-80">© 2024 Solace Point Insurance Agency. All rights reserved.</p>
+</div>
+</footer>
+</body></html>
