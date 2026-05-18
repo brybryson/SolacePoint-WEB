@@ -5,6 +5,9 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   base: '/SolacePoint/',
+  build: {
+    outDir: 'dist/SolacePoint',
+  },
   server: {
     port: 5174,
   }

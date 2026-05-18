@@ -8,12 +8,8 @@
   ],
   "rewrites": [
     {
-      "source": "/SolacePoint/assets/:path*",
-      "destination": "/assets/:path*"
-    },
-    {
       "source": "/SolacePoint/:path*",
-      "destination": "/index.html"
+      "destination": "/SolacePoint/index.html"
     }
   ]
 }
