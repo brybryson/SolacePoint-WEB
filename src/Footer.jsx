@@ -1,16 +1,22 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import logo from './assets/SolacePointLogo.png';
 
 const Footer = () => {
+  const navigate = useNavigate();
+
   return (
-    <footer className="bg-surface pt-32 pb-16 px-margin-desktop border-t border-outline-variant/30">
+    <footer className="bg-surface pt-32 pb-16 px-6 md:px-margin-desktop border-t border-outline-variant/30">
       <div className="max-w-container-max mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-20 mb-32">
+          
+          {/* Brand Column */}
           <div className="lg:col-span-5">
             <img 
               alt="Solace Point Logo" 
-              className="h-28 w-auto mb-10 object-contain" 
+              className="h-28 w-auto mb-10 object-contain cursor-pointer" 
               src={logo}
+              onClick={() => navigate('/Home')}
             />
             <p className="font-body-md text-on-surface-variant mb-12 leading-relaxed max-w-sm text-lg">
               A premium insurance agency dedicated to the architecture of security. We provide the foundation upon which your future is built.
@@ -27,37 +33,86 @@ const Footer = () => {
               </a>
             </div>
           </div>
+
+          {/* Portfolio Links */}
           <div className="lg:col-span-2">
-            <h5 className="font-bold uppercase tracking-[0.4em] text-tertiary text-xs mb-10">Quick Links</h5>
+            <h5 className="font-bold uppercase tracking-[0.4em] text-tertiary text-xs mb-10">Portfolio</h5>
             <ul className="space-y-6">
-              <li className=""><a className="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium tracking-wide" href="#">Residential</a></li>
-              <li className=""><a className="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium tracking-wide" href="#">Commercial</a></li>
-              <li className=""><a className="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium tracking-wide" href="#">Vitality</a></li>
-              <li className=""><a className="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium tracking-wide" href="#">Innovation</a></li>
+              <li>
+                <button onClick={() => navigate('/products/fire')} className="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium tracking-wide text-left">
+                  Fire & Property
+                </button>
+              </li>
+              <li>
+                <button onClick={() => navigate('/products/motorcars')} className="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium tracking-wide text-left">
+                  Motor Cars
+                </button>
+              </li>
+              <li>
+                <button onClick={() => navigate('/products/tnvs')} className="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium tracking-wide text-left">
+                  TNVS Secure
+                </button>
+              </li>
+              <li>
+                <button onClick={() => navigate('/products')} className="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium tracking-wide text-left">
+                  All Products
+                </button>
+              </li>
             </ul>
           </div>
+
           <div className="lg:col-span-2">
             <h5 className="font-bold uppercase tracking-[0.4em] text-tertiary text-xs mb-10">Company</h5>
             <ul className="space-y-6">
-              <li className=""><a className="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium tracking-wide" href="#">Methodology</a></li>
-              <li className=""><a className="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium tracking-wide" href="#">Advisory</a></li>
-              <li className=""><a className="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium tracking-wide" href="#">Insights</a></li>
-              <li className=""><a className="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium tracking-wide" href="#">Contact</a></li>
+              <li>
+                <button onClick={() => navigate('/Home')} className="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium tracking-wide text-left">
+                  Home
+                </button>
+              </li>
+              <li>
+                <button onClick={() => navigate('/about')} className="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium tracking-wide text-left">
+                  Experience
+                </button>
+              </li>
+              <li>
+                <button onClick={() => navigate('/promise')} className="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium tracking-wide text-left">
+                  Our Promise
+                </button>
+              </li>
+              <li>
+                <button onClick={() => navigate('/advisory')} className="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium tracking-wide text-left">
+                  Advisory Hub
+                </button>
+              </li>
+              <li>
+                <button onClick={() => navigate('/contact')} className="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium tracking-wide text-left">
+                  Contact Us
+                </button>
+              </li>
             </ul>
           </div>
+
+          {/* Newsletter */}
           <div className="lg:col-span-3">
             <h5 className="font-bold uppercase tracking-[0.4em] text-tertiary text-xs mb-10">Newsletter</h5>
-            <p className="text-on-surface-variant text-sm mb-8 leading-relaxed">Receive curated insights on risk management and financial peace.</p>
+            <p className="text-on-surface-variant text-sm mb-8 leading-relaxed">
+              Receive curated insights on risk management and financial peace.
+            </p>
             <div className="flex flex-col gap-4">
               <input 
                 className="bg-surface-container-low border border-outline-variant/40 rounded-full px-6 py-4 w-full text-on-surface placeholder-on-surface-variant/50 focus:ring-2 focus:ring-primary outline-none transition-all" 
                 placeholder="Email Address" 
                 type="email"
               />
-              <button className="bg-primary text-white px-8 py-4 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-on-surface transition-all shadow-lg">Join the Circle</button>
+              <button className="bg-primary text-white px-8 py-4 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-on-surface transition-all shadow-lg">
+                Join the Circle
+              </button>
             </div>
           </div>
+
         </div>
+
+        {/* Bottom Bar */}
         <div className="pt-12 border-t border-outline-variant/30 flex flex-col md:flex-row justify-between items-center gap-8">
           <p className="font-body-md text-xs text-on-surface-variant/70 uppercase tracking-widest">
             © 2026 Solace Point Insurance Agency. All rights reserved.
@@ -67,6 +122,7 @@ const Footer = () => {
             <a className="hover:text-primary transition-colors whitespace-nowrap" href="#">Terms of Service</a>
           </div>
         </div>
+
       </div>
     </footer>
   );
