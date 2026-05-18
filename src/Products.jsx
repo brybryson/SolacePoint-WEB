@@ -51,20 +51,19 @@ const ScrollReveal = ({ children, direction = 'up', delay = 0, className = '' })
 const products = [
   { id: 'fire', title: 'Fire Insurance', icon: 'local_fire_department', short: 'Comprehensive protection against fire and allied perils.', desc: 'Our Fire Insurance provides absolute architectural protection for your properties. It covers damage from fire, lightning, and specialized perils including earthquakes, typhoons, and floods. We ensure that in the event of a catastrophic loss, your capital and physical assets can be fully restored without disrupting your legacy.' },
   { id: 'marine', title: 'Marine Insurance', icon: 'directions_boat', short: 'Secure your cargo across all international and domestic waters.', desc: 'Whether you are shipping domestically or across global waters, our Marine Insurance guarantees that your cargo, hull, and freight are protected against the unpredictable elements of the sea. We provide robust end-to-end transit coverage designed for the modern innovator.' },
-  { id: 'pa', title: 'Personal Accident', icon: 'personal_injury', short: 'Financial stability in the event of unforeseen personal injuries.', desc: 'Life is unpredictable, but your financial stability shouldn\'t be. Our Personal Accident coverage offers comprehensive medical reimbursement, disability benefits, and lump-sum payouts in the event of an accident, ensuring you and your family are fully supported during recovery.' },
+  { id: 'personalaccident', title: 'Personal Accident', icon: 'personal_injury', short: 'Financial stability in the event of unforeseen personal injuries.', desc: 'Life is unpredictable, but your financial stability shouldn\'t be. Our Personal Accident coverage offers comprehensive medical reimbursement, disability benefits, and lump-sum payouts in the event of an accident, ensuring you and your family are fully supported during recovery.' },
   { id: 'travel', title: 'Travel Secure', icon: 'flight_takeoff', short: 'Uninterrupted peace of mind for your global journeys.', desc: 'Travel Secure is designed to handle the unexpected while you are away from home. From flight cancellations and lost baggage to emergency medical assistance abroad, we bridge the gap between uncertainty and absolute resolution wherever you are in the world.' },
-  { id: 'pet', title: 'Pet Secure', icon: 'pets', short: 'Bespoke wellness and medical architecture for your loyal companions.', desc: 'Because they are part of the family, Pet Secure offers specialized coverage for veterinary expenses, accidental injuries, and illnesses. We provide peace of mind so you can focus entirely on the recovery and well-being of your beloved pets.' },
+  { id: 'petsecure', title: 'Pet Secure', icon: 'pets', short: 'Bespoke wellness and medical architecture for your loyal companions.', desc: 'Because they are part of the family, Pet Secure offers specialized coverage for veterinary expenses, accidental injuries, and illnesses. We provide peace of mind so you can focus entirely on the recovery and well-being of your beloved pets.' },
   { id: 'casualty', title: 'Casualty Insurance', icon: 'healing', short: 'Strategic liability protection for businesses and professionals.', desc: 'Our Casualty Insurance is engineered to protect you against complex liability claims. From general public liability to professional indemnity, we shield your business operations from third-party claims involving bodily injury or property damage.' },
   { id: 'engineering', title: 'Engineering Insurance', icon: 'construction', short: 'Coverage for complex construction, machinery, and electronic risks.', desc: 'Designed specifically for contractors and heavy industries. We cover the risks associated with the erection of machinery, contractors\' all risks (CAR), and electronic equipment, ensuring your massive infrastructural projects are secured from day one until completion.' },
-  { id: 'motor', title: 'Motor Car Insurance', icon: 'directions_car', short: 'Premium mobility coverage ensuring your journey remains secure.', desc: 'Our Motor Car Insurance goes beyond standard compliance. It offers comprehensive protection against theft, accidental damage, and third-party liabilities, ensuring that your daily transit and valuable automotive assets are completely safeguarded.' },
+  { id: 'motorcars', title: 'Motor Car Insurance', icon: 'directions_car', short: 'Premium mobility coverage ensuring your journey remains secure.', desc: 'Our Motor Car Insurance goes beyond standard compliance. It offers comprehensive protection against theft, accidental damage, and third-party liabilities, ensuring that your daily transit and valuable automotive assets are completely safeguarded.' },
+  { id: 'tnvs', title: 'TNVS Insurance', icon: 'local_taxi', short: 'Specialized protection for ride-hailing and transport network vehicles.', desc: 'Designed exclusively for TNVS operators and drivers, this insurance ensures your vehicle, your livelihood, and your passengers are comprehensively protected while operating on platforms like Grab and JoyRide.' },
   { id: 'bonds', title: 'Bonds', icon: 'assured_workload', short: 'Surety and guarantee bonds designed for commercial integrity.', desc: 'We provide the financial backing you need to secure critical contracts. Our Bonds—including performance, surety, and bid bonds—act as a resolute guarantee of your commitment, enhancing your credibility and ensuring mutual trust in massive commercial undertakings.' }
 ];
 
 const Products = () => {
   const navigate = useNavigate();
   const [scrollY, setScrollY] = useState(0);
-  const [selectedProduct, setSelectedProduct] = useState(null);
-
   useEffect(() => {
     window.scrollTo(0, 0);
     const handleScroll = () => setScrollY(window.scrollY);
@@ -74,16 +73,6 @@ const Products = () => {
 
   const navOpacity = Math.min(scrollY / 300, 1);
   const isAtTop = scrollY < 50;
-
-  // Prevent background scroll when modal is open
-  useEffect(() => {
-    if (selectedProduct) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-    return () => { document.body.style.overflow = 'auto'; };
-  }, [selectedProduct]);
 
   return (
     <div className="font-sans antialiased text-on-surface bg-surface-container-lowest min-h-screen selection:bg-secondary/30">
@@ -123,7 +112,7 @@ const Products = () => {
             {products.map((product, idx) => (
               <ScrollReveal key={product.id} delay={(idx % 3) * 100} direction="up" className="h-full">
                 <div 
-                  onClick={() => setSelectedProduct(product)}
+                  onClick={() => navigate('/products/' + product.id)}
                   className="group bg-white p-10 md:p-12 rounded-[2rem] border border-outline-variant/30 hover:border-secondary/30 hover:shadow-2xl transition-all duration-500 flex flex-col h-full cursor-pointer relative overflow-hidden"
                 >
                   <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/5 rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform duration-500"></div>
@@ -165,13 +154,13 @@ const Products = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <button 
                 onClick={() => navigate('/quote')}
-                className="bg-secondary text-on-secondary-fixed px-12 py-5 font-bold text-sm rounded-full uppercase tracking-[0.2em] hover:bg-white hover:text-primary transition-all duration-300 shadow-xl shadow-secondary/20 w-full sm:w-auto"
+                className="bg-secondary text-on-secondary-fixed px-16 py-7 font-bold text-sm rounded-full uppercase tracking-[0.3em] hover:bg-secondary-container transition-all shadow-xl w-full sm:w-auto"
               >
                 Get a Quote
               </button>
               <button 
                 onClick={() => navigate('/contact')}
-                className="border-2 border-white/40 text-white hover:bg-white hover:text-primary px-12 py-5 font-bold text-sm rounded-full uppercase tracking-[0.2em] transition-all backdrop-blur-sm w-full sm:w-auto"
+                className="border-2 border-white/40 text-white hover:bg-white hover:text-primary px-16 py-7 font-bold text-sm rounded-full uppercase tracking-[0.3em] transition-all backdrop-blur-sm w-full sm:w-auto"
               >
                 Speak with an Advisor
               </button>
@@ -181,61 +170,6 @@ const Products = () => {
       </section>
 
       <Footer />
-
-      {/* Interactive Specifics Modal */}
-      {selectedProduct && (
-        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 md:p-6 bg-background/60 backdrop-blur-sm transition-all duration-500">
-          <div className="bg-primary max-w-2xl w-full p-8 md:p-12 lg:p-16 flex flex-col relative shadow-2xl animate-[ken-burns_0.4s_ease-out_forwards] rounded-[2rem] overflow-hidden max-h-[90vh] overflow-y-auto">
-            
-            {/* Architectural Lines */}
-            <div className="absolute top-0 left-8 md:left-12 w-[1px] h-full bg-white/5 pointer-events-none"></div>
-            
-            {/* Close Button */}
-            <button 
-              onClick={() => setSelectedProduct(null)}
-              className="absolute top-6 right-6 w-12 h-12 flex items-center justify-center rounded-full bg-white/5 text-white/70 hover:bg-white/10 hover:text-white transition-all z-20"
-            >
-              <span className="material-symbols-outlined">close</span>
-            </button>
-
-            <div className="relative z-10 pt-4">
-              <div className="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center mb-8">
-                <span className="material-symbols-outlined text-4xl text-secondary" data-icon={selectedProduct.icon}>{selectedProduct.icon}</span>
-              </div>
-              
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-8 h-[1px] bg-secondary"></div>
-                <span className="text-secondary text-[10px] font-bold uppercase tracking-[0.4em]">Product Specifics</span>
-              </div>
-              
-              <h3 className="font-display-lg text-4xl md:text-5xl text-white font-bold leading-[1.1] mb-6">
-                {selectedProduct.title}
-              </h3>
-              
-              <p className="font-body-lg text-white/80 leading-relaxed text-lg md:text-xl mb-12">
-                {selectedProduct.desc}
-              </p>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-white/10 pt-8 mt-auto">
-                <button 
-                  onClick={() => { setSelectedProduct(null); navigate('/quote'); }}
-                  className="group w-full bg-secondary text-on-secondary h-16 rounded-lg font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-3 hover:bg-white hover:text-primary transition-colors shadow-lg"
-                >
-                  Request a Quote
-                  <span className="material-symbols-outlined transition-transform group-hover:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
-                </button>
-                <button 
-                  onClick={() => { setSelectedProduct(null); navigate('/contact'); }}
-                  className="group w-full border border-white/20 text-white h-16 rounded-lg font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-3 hover:bg-white/10 transition-colors"
-                >
-                  Ask an Advisor
-                  <span className="material-symbols-outlined" data-icon="chat">chat</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

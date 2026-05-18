@@ -180,7 +180,7 @@ const About = () => {
             <ScrollReveal direction="up" delay={100}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div className="md:pr-16 md:text-right relative">
-                  <div className="hidden md:block absolute -right-[24.5px] top-1/2 w-3 h-3 rounded-full bg-secondary -translate-y-1/2 z-10"></div>
+                  <div className="hidden md:block absolute -right-[30px] top-1/2 w-3 h-3 rounded-full bg-secondary -translate-y-1/2 z-10"></div>
                   <h3 className="font-body-lg text-2xl font-bold text-primary mb-3">Home & Property</h3>
                   <p className="font-bold text-xs uppercase tracking-widest text-tertiary mb-6">Fire Insurance & Real Estate</p>
                   <p className="text-on-surface-variant leading-relaxed text-lg">Protecting the heart of your home against the unexpected. We ensure that your most valuable structural assets remain standing through any adversity.</p>
@@ -195,7 +195,7 @@ const About = () => {
             <ScrollReveal direction="up" delay={200}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div className="md:order-2 md:pl-16 relative">
-                  <div className="hidden md:block absolute -left-[24.5px] top-1/2 w-3 h-3 rounded-full bg-secondary -translate-y-1/2 z-10"></div>
+                  <div className="hidden md:block absolute -left-[30px] top-1/2 w-3 h-3 rounded-full bg-secondary -translate-y-1/2 z-10"></div>
                   <h3 className="font-body-lg text-2xl font-bold text-primary mb-3">Mobility & Travel</h3>
                   <p className="font-bold text-xs uppercase tracking-widest text-tertiary mb-6">Motor Car, Marine, TNVS, Travel</p>
                   <p className="text-on-surface-variant leading-relaxed text-lg">Guiding you safely across every journey, by land or sea. We engineer stability for the modern driver and the global traveler.</p>
@@ -210,7 +210,7 @@ const About = () => {
             <ScrollReveal direction="up" delay={300}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div className="md:pr-16 md:text-right relative">
-                  <div className="hidden md:block absolute -right-[24.5px] top-1/2 w-3 h-3 rounded-full bg-secondary -translate-y-1/2 z-10"></div>
+                  <div className="hidden md:block absolute -right-[30px] top-1/2 w-3 h-3 rounded-full bg-secondary -translate-y-1/2 z-10"></div>
                   <h3 className="font-body-lg text-2xl font-bold text-primary mb-3">Life & Leisure</h3>
                   <p className="font-bold text-xs uppercase tracking-widest text-tertiary mb-6">Personal Accident & Pet Secure</p>
                   <p className="text-on-surface-variant leading-relaxed text-lg">Profound consolation and care for you and those who depend on you. Warmth and protection when life's unpredictabilities strike.</p>
@@ -225,7 +225,7 @@ const About = () => {
             <ScrollReveal direction="up" delay={400}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div className="md:order-2 md:pl-16 relative">
-                  <div className="hidden md:block absolute -left-[24.5px] top-1/2 w-3 h-3 rounded-full bg-secondary -translate-y-1/2 z-10"></div>
+                  <div className="hidden md:block absolute -left-[30px] top-1/2 w-3 h-3 rounded-full bg-secondary -translate-y-1/2 z-10"></div>
                   <h3 className="font-body-lg text-2xl font-bold text-primary mb-3">Business & Safety</h3>
                   <p className="font-bold text-xs uppercase tracking-widest text-tertiary mb-6">Casualty, Engineering, Bonds</p>
                   <p className="text-on-surface-variant leading-relaxed text-lg">The solid ground and anchor for your professional ventures. Complex risk mitigation built on foundational architectural stability.</p>

@@ -209,21 +209,21 @@ const Contact = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
             <ScrollReveal direction="up" delay={100} className="h-full">
               <div className="h-full bg-white p-8 md:p-10 rounded-2xl border border-outline-variant/30 hover:border-secondary/30 hover:shadow-xl transition-all duration-500 group">
-                <span className="material-symbols-outlined text-4xl text-secondary mb-6 block group-hover:scale-110 transition-transform" data-icon="chat">chat</span>
+                <span className="material-symbols-outlined text-4xl text-secondary mb-6 inline-block group-hover:scale-110 transition-transform" data-icon="chat">chat</span>
                 <h4 className="font-body-lg text-xl font-bold mb-4 text-primary">Get a Free Quote</h4>
                 <p className="text-on-surface-variant leading-relaxed text-base">Compare options from multiple top insurance providers to find the perfect fit for your precise needs.</p>
               </div>
             </ScrollReveal>
             <ScrollReveal direction="up" delay={200} className="h-full">
               <div className="h-full bg-white p-8 md:p-10 rounded-2xl border border-outline-variant/30 hover:border-secondary/30 hover:shadow-xl transition-all duration-500 group">
-                <span className="material-symbols-outlined text-4xl text-secondary mb-6 block group-hover:scale-110 transition-transform" data-icon="admin_panel_settings">admin_panel_settings</span>
+                <span className="material-symbols-outlined text-4xl text-secondary mb-6 inline-block group-hover:scale-110 transition-transform" data-icon="admin_panel_settings">admin_panel_settings</span>
                 <h4 className="font-body-lg text-xl font-bold mb-4 text-primary">Expert Guidance</h4>
                 <p className="text-on-surface-variant leading-relaxed text-base">Our licensed agents will help you navigate and fully understand your options with absolute professional trust.</p>
               </div>
             </ScrollReveal>
             <ScrollReveal direction="up" delay={300} className="h-full">
               <div className="h-full bg-white p-8 md:p-10 rounded-2xl border border-outline-variant/30 hover:border-secondary/30 hover:shadow-xl transition-all duration-500 group">
-                <span className="material-symbols-outlined text-4xl text-secondary mb-6 block group-hover:scale-110 transition-transform" data-icon="bolt">bolt</span>
+                <span className="material-symbols-outlined text-4xl text-secondary mb-6 inline-block group-hover:scale-110 transition-transform" data-icon="bolt">bolt</span>
                 <h4 className="font-body-lg text-xl font-bold mb-4 text-primary">Fast Response</h4>
                 <p className="text-on-surface-variant leading-relaxed text-base">We prioritize the human experience, guaranteeing a response to all inquiries within 24 hours.</p>
               </div>
