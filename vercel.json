@@ -1,0 +1,19 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/SolacePoint/Home",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/SolacePoint/assets/:path*",
+      "destination": "/assets/:path*"
+    },
+    {
+      "source": "/SolacePoint/:path*",
+      "destination": "/index.html"
+    }
+  ]
+}
