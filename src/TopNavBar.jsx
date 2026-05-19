@@ -23,7 +23,7 @@ const TopNavBar = ({ scrollY, visible, navOpacity, isAtTop, theme = 'dark' }) =>
           <img
             alt="Solace Point Logo"
             className={`h-14 w-auto object-contain transition-all duration-500 ${
-              !useLightColors ? 'brightness-0 invert' : ''
+              !useLightColors ? 'brightness-0 invert group-hover:brightness-100 group-hover:invert-0' : ''
             }`}
             src={logo}
           />
