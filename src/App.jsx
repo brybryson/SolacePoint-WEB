@@ -20,6 +20,7 @@ import ArticleCommercialRisk from './ArticleCommercialRisk'
 import ArticleHomeProperty from './ArticleHomeProperty'
 import ArticleMobility from './ArticleMobility'
 import NotFound from './NotFound'
+import PrivacyPolicy from './PrivacyPolicy'
 import './index.css'
 
 function App() {
@@ -60,6 +61,7 @@ function App() {
         <Route path="/advisory/commercial-risk" element={<ArticleCommercialRisk />} />
         <Route path="/advisory/home-property" element={<ArticleHomeProperty />} />
         <Route path="/advisory/mobility" element={<ArticleMobility />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
