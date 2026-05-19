@@ -34,9 +34,9 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Portfolio Links */}
+          {/* Products Links */}
           <div className="lg:col-span-2">
-            <h5 className="font-bold uppercase tracking-[0.4em] text-tertiary text-xs mb-10">Portfolio</h5>
+            <h5 className="font-bold uppercase tracking-[0.4em] text-tertiary text-xs mb-10">Products</h5>
             <ul className="space-y-6">
               <li>
                 <button onClick={() => navigate('/products/fire')} className="text-on-surface-variant hover:text-primary transition-colors text-sm font-medium tracking-wide text-left">
@@ -117,9 +117,9 @@ const Footer = () => {
           <p className="font-body-md text-xs text-on-surface-variant/70 uppercase tracking-widest">
             © 2026 Solace Point Insurance Agency. All rights reserved.
           </p>
-          <div className="flex items-center gap-10 text-[10px] text-on-surface-variant/60 uppercase tracking-[0.3em]">
-            <a className="hover:text-primary transition-colors whitespace-nowrap" href="#">Privacy Policy</a>
-            <a className="hover:text-primary transition-colors whitespace-nowrap" href="#">Terms of Service</a>
+          <div className="flex items-center gap-10 text-[10px] uppercase tracking-[0.3em]">
+            <button onClick={() => navigate('/privacy-policy')} className="text-on-surface-variant/60 hover:text-primary transition-colors whitespace-nowrap text-left font-semibold">PRIVACY POLICY</button>
+            <span className="text-secondary font-bold whitespace-nowrap">POWERED BY SOLACE POINT</span>
           </div>
         </div>
 
