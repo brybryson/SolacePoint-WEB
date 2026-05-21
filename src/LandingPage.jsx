@@ -81,6 +81,7 @@ const LandingPage = () => {
       <TopNavBar scrollY={scrollY} visible={visible} navOpacity={navOpacity} isAtTop={isAtTop} theme="dark" />
 
       <section className="relative h-screen min-h-[700px] flex items-center pb-24 pt-20 overflow-hidden">
+        {/* Ambient Glows for Depth */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <img
             alt="Luxury background"
@@ -91,27 +92,50 @@ const LandingPage = () => {
             }}
             src={heroBg}
           />
-          <div className="absolute inset-0 bg-primary/40 backdrop-brightness-75"></div>
+          {/* Linear gradient overlay for high text contrast */}
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/50 to-transparent"></div>
+          {/* Radial brightness overlay */}
+          <div className="absolute inset-0 bg-black/10 backdrop-brightness-[0.85]"></div>
         </div>
-        <div className="relative z-10 w-full max-w-container-max mx-auto px-6 md:px-margin-desktop">
-          <div className="max-w-2xl text-left">
-            <div className="inline-flex items-center gap-3 mb-8">
-              <div className="w-12 h-[1px] bg-secondary"></div>
-              <span className="text-secondary text-[13px] font-bold uppercase tracking-[0.4em]">Architects of Stability</span>
+
+        <div className="relative z-10 w-full max-w-container-max mx-auto px-6 md:pl-8 md:pr-margin-desktop">
+          {/* Subtle Golden Ambient Glow Behind Text */}
+          <div className="absolute -top-1/4 -left-1/4 w-[60%] h-[60%] bg-secondary/10 rounded-full blur-[120px] pointer-events-none -z-10 animate-pulse" style={{ animationDuration: '8s' }}></div>
+
+          <div className="max-w-3xl text-left animate-fade-in">
+            {/* Elegant Minimalist Brand Tag */}
+            <div className="flex items-center gap-5 mb-10">
+              <img src={logo} alt="Solace Point Logo" className="h-16 w-auto object-contain brightness-0 invert opacity-95" />
+              <div className="flex flex-col justify-center">
+                <span className="text-white font-display text-2xl tracking-[0.1em] font-semibold leading-none uppercase">Solace Point</span>
+                <span className="text-secondary text-[11px] font-bold uppercase tracking-[0.3em] mt-2.5 leading-none">Architects of Stability</span>
+              </div>
             </div>
 
-            <h1 className="font-display-lg text-[clamp(44px,8vw,84px)] mb-8 leading-[1.1] font-bold text-white">
-              We Don’t Just <br/>
-              Sell Insurance.<br/>
-              <span className="text-secondary font-black">We Sell Peace <br/> of Mind.</span>
+            {/* Breathtaking High-Impact Heading */}
+            <h1 className="font-display-lg text-[clamp(54px,8.5vw,94px)] mb-8 leading-[1.0] text-white tracking-tighter">
+              Find Your <br/>
+              <span className="font-black">Solace</span> <span className="text-secondary font-light">Point.</span>
             </h1>
 
-            <p className="font-body-lg text-lg md:text-xl mb-12 max-w-xl leading-relaxed text-white/90">
+            {/* Supporting Tagline (Secondary Center Piece) */}
+            <div className="mb-10 max-w-2xl">
+              <p className="font-display text-2xl md:text-3xl lg:text-[2.5rem] text-white/90 font-light italic leading-[1.2] tracking-tight">
+                “We don’t just sell insurance… <br/>
+                <span className="text-secondary block mt-3">We sell peace of mind.”</span>
+              </p>
+            </div>
+
+            {/* Primary Description Paragraph */}
+            <p className="font-body-lg text-base md:text-lg mb-12 max-w-lg leading-relaxed text-white/80">
               Experience the profound quietude that comes from knowing you're truly protected. We bridge the gap between uncertainty and absolute resolution.
             </p>
 
             <div className="flex flex-wrap items-center gap-10">
-              <button onClick={() => navigate('/quote')} className="bg-secondary text-on-secondary-fixed px-12 py-5 font-bold text-sm rounded-full uppercase tracking-[0.2em] hover:bg-white transition-all duration-300 shadow-lg">
+              <button 
+                onClick={() => navigate('/quote')} 
+                className="bg-secondary text-on-secondary-fixed px-12 py-5 font-bold text-xs rounded-full uppercase tracking-[0.2em] hover:bg-white hover:text-primary transition-all duration-500 shadow-[0_10px_30px_rgba(228,226,227,0.15)] hover:shadow-[0_20px_40px_rgba(255,255,255,0.25)] transform hover:-translate-y-1"
+              >
                 Secure Your Peace
               </button>
 
@@ -119,8 +143,8 @@ const LandingPage = () => {
                 onClick={() => navigate('/promise')}
                 className="group flex items-center gap-5 font-bold text-sm uppercase tracking-[0.2em] transition-all text-white hover:text-secondary"
               >
-                <span className="pb-1">Our Promise</span>
-                <span className="material-symbols-outlined text-2xl transition-transform group-hover:translate-x-2" data-icon="arrow_forward">arrow_forward</span>
+                <span className="pb-1 border-b border-transparent group-hover:border-secondary transition-all duration-300">Our Promise</span>
+                <span className="material-symbols-outlined text-2xl transition-transform duration-300 group-hover:translate-x-2" data-icon="arrow_forward">arrow_forward</span>
               </button>
             </div>
           </div>
@@ -156,8 +180,8 @@ const LandingPage = () => {
                         <span className="font-display-lg text-6xl italic text-tertiary/60 leading-none">02</span>
                       </div>
                       <div>
-                        <h4 className="font-body-lg text-2xl mb-3 text-on-surface font-bold tracking-tight">Unwavering Presence</h4>
-                        <p className="text-on-surface-variant leading-relaxed text-lg max-w-md">A promise that we are the first responders to your recovery. When the world feels unstable, we remain your constant.</p>
+                        <h4 className="font-body-lg text-2xl mb-3 text-on-surface font-bold tracking-tight">Dedicated Advocacy</h4>
+                        <p className="text-on-surface-variant leading-relaxed text-lg max-w-md">Committed advisors who guide you step-by-step through claims and recovery. When challenges arise, we stand with you to navigate the path back to stability.</p>
                       </div>
                     </div>
                   </ScrollReveal>
@@ -168,8 +192,8 @@ const LandingPage = () => {
                         <span className="font-display-lg text-6xl italic text-tertiary/60 leading-none">03</span>
                       </div>
                       <div>
-                        <h4 className="font-body-lg text-2xl mb-3 text-on-surface font-bold tracking-tight">Resolved Certainty</h4>
-                        <p className="text-on-surface-variant leading-relaxed text-lg max-w-md">The final point where worry ends. A lifestyle defined not by the risks you face, but by the security you possess.</p>
+                        <h4 className="font-body-lg text-2xl mb-3 text-on-surface font-bold tracking-tight">Structured Assurance</h4>
+                        <p className="text-on-surface-variant leading-relaxed text-lg max-w-md">Helping you build a stronger foundation to face the future with confidence, backed by clear-sighted protection tailored to your lifestyle.</p>
                       </div>
                     </div>
                   </ScrollReveal>
@@ -338,7 +362,7 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Enhanced Product Solutions Grid */}
+      {/* Strategic Protection Section (Replaces Curated Solutions) */}
       <section className="py-40 bg-surface-container-low relative overflow-hidden">
         {/* Classy Architectural Background Elements */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -352,55 +376,115 @@ const LandingPage = () => {
           {/* Soft Luxury Glows */}
           <div className="absolute -top-[20%] -right-[10%] w-[60%] h-[60%] bg-secondary/5 rounded-full blur-[120px]"></div>
           <div className="absolute -bottom-[20%] -left-[10%] w-[60%] h-[60%] bg-tertiary/5 rounded-full blur-[120px]"></div>
-
-          {/* Faint Drafting Mark */}
-          <div className="absolute top-20 left-20 w-32 h-32 border-l border-t border-tertiary/30 opacity-50"></div>
-          <div className="absolute bottom-20 right-20 w-32 h-32 border-r border-b border-tertiary/30 opacity-50"></div>
         </div>
 
         <div className="max-w-container-max mx-auto px-6 md:px-margin-desktop relative z-10">
-          <ScrollReveal direction="up">
-            <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
-              <div className="max-w-2xl">
-                <p className="text-tertiary font-bold tracking-[0.5em] uppercase mb-6 text-sm">Curated Solutions</p>
-                <h2 className="font-display-lg text-5xl md:text-6xl text-on-surface font-bold">Protection Architected <br/>for Your Legacy</h2>
-              </div>
-              <button onClick={() => navigate('/products')} className="group flex items-center gap-4 font-bold text-xs uppercase tracking-[0.3em] text-tertiary pb-3 border-b-2 border-secondary/30 hover:border-tertiary transition-all cursor-pointer">
-                View All Products
-                <span className="material-symbols-outlined transition-transform duration-300 group-hover:translate-x-2" data-icon="arrow_right_alt">arrow_right_alt</span>
-              </button>
-            </div>
-          </ScrollReveal>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { id: '01', title: 'Residential Sanctuary', icon: 'home_pin', desc: 'Advanced fire and property protection that safeguards the hearth of your family’s history.' },
-              { id: '02', title: 'Guided Transit', icon: 'explore', desc: 'Premium mobility coverage for land and sea, ensuring your journey remains uninterrupted.' },
-              { id: '03', title: 'Kindred Vitality', icon: 'shield_with_heart', desc: 'Bespoke life and wellness architecture for those who mean everything to you.' },
-              { id: '04', title: 'Venture Stability', icon: 'anchor', desc: 'Strategic commercial bonds and casualty insurance designed for the modern innovator.' }
-            ].map((solution, idx) => (
-              <ScrollReveal key={solution.id} delay={idx * 100} direction="up">
-                <div className="group relative bg-surface p-12 border border-outline-variant/30 rounded-3xl hover:bg-white hover:shadow-[0_20px_50px_-15px_rgba(30,63,98,0.12)] transition-all duration-500 flex flex-col h-full overflow-hidden">
-                  <div className="mb-10 text-primary group-hover:scale-110 transition-transform duration-500 group-hover:text-tertiary">
-                    <span className="material-symbols-outlined text-6xl" data-icon={solution.icon}>{solution.icon}</span>
-                  </div>
+          <div className="text-center mb-24 flex flex-col items-center">
+            <p className="text-tertiary font-bold tracking-[0.5em] uppercase mb-6 text-sm">Strategic Protection</p>
+            <h2 className="font-display-lg text-4xl md:text-5xl text-on-surface font-bold mb-6">The Architecture of Your Security</h2>
+            <p className="font-body text-base text-on-surface-variant max-w-2xl leading-relaxed">
+              We offer bespoke, precision-engineered coverage across all aspects of your personal and professional life. Discover our comprehensive suites of security.
+            </p>
+          </div>
 
-                  <h3 className="font-body-lg text-2xl mb-5 text-on-surface font-bold tracking-tight">
-                    {solution.title}
-                  </h3>
-
-                  <p className="font-body-md text-on-surface-variant mb-12 leading-relaxed flex-grow">
-                    {solution.desc}
-                  </p>
-
-                  <div className="mt-auto">
-                    <button className="group/btn flex items-center gap-3 text-tertiary font-bold text-xs uppercase tracking-widest hover:text-primary transition-colors">
-                      Explore Solution
-                      <span className="material-symbols-outlined text-xl transition-transform duration-300 group-hover/btn:translate-x-2" data-icon="arrow_right_alt">arrow_right_alt</span>
+          <div className="flex flex-col gap-16 md:gap-32 relative pt-12">
+            <div className="absolute left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-outline-variant/30 via-outline-variant/50 to-transparent hidden md:block -translate-x-1/2"></div>
+            
+            <ScrollReveal direction="up" delay={100}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div className="md:pr-16 md:text-right relative">
+                  <div className="hidden md:block absolute -right-[30px] top-1/2 w-3 h-3 rounded-full bg-secondary -translate-y-1/2 z-10"></div>
+                  <h3 className="font-body-lg text-2xl font-bold text-primary mb-3">Home & Property</h3>
+                  <p className="font-bold text-xs uppercase tracking-widest text-tertiary mb-6">Fire Insurance & Real Estate</p>
+                  <p className="text-on-surface-variant leading-relaxed text-lg mb-8">Protecting the heart of your home against the unexpected. We ensure that your most valuable structural assets remain standing through any adversity.</p>
+                  <div className="flex md:justify-end">
+                    <button 
+                      onClick={() => navigate('/products')} 
+                      className="inline-flex items-center gap-3 border border-primary/20 text-primary hover:bg-primary hover:text-white px-8 py-3.5 font-bold text-xs rounded-full uppercase tracking-[0.15em] transition-all duration-300"
+                    >
+                      See all products
+                      <span className="material-symbols-outlined text-base" data-icon="arrow_right_alt">arrow_right_alt</span>
                     </button>
                   </div>
                 </div>
-              </ScrollReveal>
-            ))}
+                <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-xl bg-surface group relative">
+                  <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop" alt="Modern Architecture" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"/>
+                  <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-700"></div>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal direction="up" delay={200}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div className="md:order-2 md:pl-16 relative">
+                  <div className="hidden md:block absolute -left-[30px] top-1/2 w-3 h-3 rounded-full bg-secondary -translate-y-1/2 z-10"></div>
+                  <h3 className="font-body-lg text-2xl font-bold text-primary mb-3">Mobility & Travel</h3>
+                  <p className="font-bold text-xs uppercase tracking-widest text-tertiary mb-6">Motor Car, Marine, TNVS, Travel</p>
+                  <p className="text-on-surface-variant leading-relaxed text-lg mb-8">Guiding you safely across every journey, by land or sea. We engineer stability for the modern driver and the global traveler.</p>
+                  <div className="flex justify-start">
+                    <button 
+                      onClick={() => navigate('/products')} 
+                      className="inline-flex items-center gap-3 border border-primary/20 text-primary hover:bg-primary hover:text-white px-8 py-3.5 font-bold text-xs rounded-full uppercase tracking-[0.15em] transition-all duration-300"
+                    >
+                      See all products
+                      <span className="material-symbols-outlined text-base" data-icon="arrow_right_alt">arrow_right_alt</span>
+                    </button>
+                  </div>
+                </div>
+                <div className="md:order-1 aspect-[4/3] rounded-3xl overflow-hidden shadow-xl bg-surface group relative">
+                  <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=1200&auto=format&fit=crop" alt="Luxury Vehicle" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"/>
+                  <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-700"></div>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal direction="up" delay={300}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div className="md:pr-16 md:text-right relative">
+                  <div className="hidden md:block absolute -right-[30px] top-1/2 w-3 h-3 rounded-full bg-secondary -translate-y-1/2 z-10"></div>
+                  <h3 className="font-body-lg text-2xl font-bold text-primary mb-3">Life & Leisure</h3>
+                  <p className="font-bold text-xs uppercase tracking-widest text-tertiary mb-6">Personal Accident & Pet Secure</p>
+                  <p className="text-on-surface-variant leading-relaxed text-lg mb-8">Profound consolation and care for you and those who depend on you. Warmth and protection when life's unpredictabilities strike.</p>
+                  <div className="flex md:justify-end">
+                    <button 
+                      onClick={() => navigate('/products')} 
+                      className="inline-flex items-center gap-3 border border-primary/20 text-primary hover:bg-primary hover:text-white px-8 py-3.5 font-bold text-xs rounded-full uppercase tracking-[0.15em] transition-all duration-300"
+                    >
+                      See all products
+                      <span className="material-symbols-outlined text-base" data-icon="arrow_right_alt">arrow_right_alt</span>
+                    </button>
+                  </div>
+                </div>
+                <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-xl bg-surface group relative">
+                  <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=1200&auto=format&fit=crop" alt="Peaceful Life" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"/>
+                  <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-700"></div>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal direction="up" delay={400}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div className="md:order-2 md:pl-16 relative">
+                  <div className="hidden md:block absolute -left-[30px] top-1/2 w-3 h-3 rounded-full bg-secondary -translate-y-1/2 z-10"></div>
+                  <h3 className="font-body-lg text-2xl font-bold text-primary mb-3">Business & Safety</h3>
+                  <p className="font-bold text-xs uppercase tracking-widest text-tertiary mb-6">Casualty, Engineering, Bonds</p>
+                  <p className="text-on-surface-variant leading-relaxed text-lg mb-8">The solid ground and anchor for your professional ventures. Complex risk mitigation built on foundational architectural stability.</p>
+                  <div className="flex justify-start">
+                    <button 
+                      onClick={() => navigate('/products')} 
+                      className="inline-flex items-center gap-3 border border-primary/20 text-primary hover:bg-primary hover:text-white px-8 py-3.5 font-bold text-xs rounded-full uppercase tracking-[0.15em] transition-all duration-300"
+                    >
+                      See all products
+                      <span className="material-symbols-outlined text-base" data-icon="arrow_right_alt">arrow_right_alt</span>
+                    </button>
+                  </div>
+                </div>
+                <div className="md:order-1 aspect-[4/3] rounded-3xl overflow-hidden shadow-xl bg-surface group relative">
+                  <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop" alt="Commercial Building" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"/>
+                  <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-700"></div>
+                </div>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -411,44 +495,44 @@ const LandingPage = () => {
           <ScrollReveal direction="up">
             <div className="text-center mb-24 max-w-3xl mx-auto">
               <span className="text-tertiary font-bold tracking-[0.5em] uppercase mb-6 block text-sm">Our Methodology</span>
-              <h2 className="font-display-lg text-5xl md:text-6xl text-on-surface mb-8 font-bold">The Architecture of Resolution</h2>
+              <h2 className="font-display-lg text-5xl md:text-6xl text-on-surface mb-8 font-bold">The Architecture of Non-Life Resolution</h2>
               <p className="font-body-lg text-on-surface-variant leading-relaxed text-xl">
-                We navigate the transition from distress to total resolution through a systematic, calm, and authoritative process.
+                At <span className="text-primary font-semibold">Solace Point</span>, we navigate the transition from unexpected loss to complete recovery through a calm, precise, and systematic non-life insurance advisory process.
               </p>
             </div>
           </ScrollReveal>
           {/* Revised Methodology: Minimalist Narrative Process Flow */}
           <div className="mt-24">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-20">
-              {/* Step 01: Initial Distress */}
+              {/* Step 01: Your Insurance Needs */}
               <ScrollReveal delay={100} direction="up">
                 <div className="text-left group border-t border-outline-variant/30 pt-8 hover:border-tertiary transition-colors duration-500">
                   <span className="font-display-lg text-6xl text-tertiary/60 font-light italic mb-6 block group-hover:text-tertiary transition-colors duration-500">01</span>
-                  <h4 className="font-body-lg text-2xl mb-4 text-on-surface font-bold tracking-tight">Initial Distress</h4>
+                  <h4 className="font-body-lg text-2xl mb-4 text-on-surface font-bold tracking-tight">Your Insurance Needs</h4>
                   <p className="text-on-surface-variant leading-relaxed text-sm md:text-base pr-4">
-                    Mapping the chaos of risk into a manageable, architected framework of needs.
+                    Helping you figure out exactly what needs insurance, from your home and car to your travels and business.
                   </p>
                 </div>
               </ScrollReveal>
 
-              {/* Step 02: Strategic Recovery */}
+              {/* Step 02: Creating Your Plan */}
               <ScrollReveal delay={300} direction="up">
                 <div className="text-left group border-t border-outline-variant/30 pt-8 hover:border-tertiary transition-colors duration-500">
                   <span className="font-display-lg text-6xl text-tertiary/60 font-light italic mb-6 block group-hover:text-tertiary transition-colors duration-500">02</span>
-                  <h4 className="font-body-lg text-2xl mb-4 text-on-surface font-bold tracking-tight">Strategic Recovery</h4>
+                  <h4 className="font-body-lg text-2xl mb-4 text-on-surface font-bold tracking-tight">Creating Your Plan</h4>
                   <p className="text-on-surface-variant leading-relaxed text-sm md:text-base pr-4">
-                    Deploying the bridge of resources that leads back to stable, solid ground.
+                    Designing a customized, simple insurance plan that fits your budget and covers your important assets.
                   </p>
                 </div>
               </ScrollReveal>
 
-              {/* Step 03: Solace Point */}
+              {/* Step 03: Peace of Mind */}
               <ScrollReveal delay={500} direction="up">
                 <div className="text-left group border-t border-outline-variant/30 pt-8 hover:border-tertiary transition-colors duration-500">
                   <span className="font-display-lg text-6xl text-tertiary/60 font-light italic mb-6 block group-hover:text-tertiary transition-colors duration-500">03</span>
-                  <h4 className="font-body-lg text-2xl mb-4 text-on-surface font-bold tracking-tight">Solace Point</h4>
+                  <h4 className="font-body-lg text-2xl mb-4 text-on-surface font-bold tracking-tight">Peace of Mind</h4>
                   <p className="text-on-surface-variant leading-relaxed text-sm md:text-base pr-4">
-                    The final attainment of absolute security and long-term resolution.
+                    Relaxing with the absolute confidence that you, your family, and your investments are safe and sound.
                   </p>
                 </div>
               </ScrollReveal>
@@ -465,6 +549,14 @@ const LandingPage = () => {
         </div>
         <div className="max-w-container-max mx-auto px-6 md:px-margin-desktop relative z-10 text-center">
           <ScrollReveal direction="up" distance="50px">
+            <div className="flex flex-col items-center justify-center mb-10">
+              <img 
+                src={logo} 
+                alt="Solace Point Logo" 
+                className="h-20 w-auto object-contain brightness-0 invert opacity-90 drop-shadow-[0_4px_12px_rgba(255,255,255,0.15)] mb-4" 
+              />
+              <span className="text-secondary text-xs font-bold uppercase tracking-[0.4em]">Solace Point Insurance Agency</span>
+            </div>
             <h2 className="font-display-lg text-5xl md:text-7xl mb-12 font-bold leading-tight">Ready to Secure Your Peace?</h2>
             <p className="font-body-lg text-xl md:text-2xl text-white/80 mb-20 max-w-2xl mx-auto leading-relaxed">
               Join the collective of individuals and businesses who have chosen to live life at the exact point where worry ends.
