@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import TopNavBar from './TopNavBar';
 import Footer from './Footer';
+import logo from './assets/SolacePointLogo.png';
 
 const useScrollReveal = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -80,15 +81,25 @@ const Products = () => {
 
       {/* SECTION 1: Hero */}
       <section className="bg-primary pt-40 pb-20 md:pt-48 md:pb-32 px-6 md:px-margin-desktop overflow-hidden relative">
+        {/* Modern architectural background photo */}
+        <div className="absolute inset-0 opacity-20 mix-blend-overlay pointer-events-none">
+          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop" alt="Modern commercial architecture" className="w-full h-full object-cover" />
+        </div>
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-white/5 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/3 pointer-events-none"></div>
         
         <ScrollReveal direction="up" className="relative z-10">
           <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
+            <div className="flex flex-col items-center gap-4 mb-8">
+              <img src={logo} alt="Solace Point Logo" className="h-20 w-auto object-contain brightness-0 invert" />
+              <div className="inline-flex items-center gap-3">
+                <div className="w-8 h-[1px] bg-secondary"></div>
+                <span className="text-secondary text-[11px] font-bold uppercase tracking-[0.3em]">Solace Point Insurance Agency</span>
+                <div className="w-8 h-[1px] bg-secondary"></div>
+              </div>
+            </div>
             <div className="inline-flex items-center gap-3 mb-6">
-              <div className="w-8 h-[1px] bg-secondary"></div>
-              <span className="text-secondary text-[11px] font-bold uppercase tracking-[0.3em]">Non-Life Insurance Portfolio</span>
-              <div className="w-8 h-[1px] bg-secondary"></div>
+              <span className="text-white/60 text-[10px] font-bold uppercase tracking-[0.3em]">Non-Life Insurance Portfolio</span>
             </div>
             <h1 className="font-display-lg text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-8">
               Protection Architected <br className="hidden md:block" /> for Your Legacy
