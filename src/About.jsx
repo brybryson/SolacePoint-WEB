@@ -36,8 +36,15 @@ const About = () => {
       <TopNavBar scrollY={scrollY} visible={visible} navOpacity={navOpacity} isAtTop={isAtTop} theme="dark" />
       
       {/* SECTION 1: Dark Header */}
-      <section className="bg-primary pt-32 pb-20 md:pt-40 md:pb-24 px-6 md:px-margin-desktop">
-        <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
+      <section className="bg-primary pt-32 pb-20 md:pt-40 md:pb-24 px-6 md:px-margin-desktop relative overflow-hidden">
+        {/* Serene coastal background photo */}
+        <div className="absolute inset-0 opacity-20 mix-blend-overlay pointer-events-none">
+          <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=2000&auto=format&fit=crop" alt="Serene coastline at dawn" className="w-full h-full object-cover" />
+        </div>
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-white/5 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/3 pointer-events-none"></div>
+
+        <div className="max-w-4xl mx-auto flex flex-col items-center text-center relative z-10">
           <div className="flex flex-col items-center gap-4 mb-8">
             <img src={logo} alt="Solace Point Logo" className="h-20 w-auto object-contain brightness-0 invert" />
             <div className="inline-flex items-center gap-3">
@@ -45,6 +52,9 @@ const About = () => {
               <span className="text-secondary text-[11px] font-bold uppercase tracking-[0.3em]">Solace Point Insurance Agency</span>
               <div className="w-8 h-[1px] bg-secondary"></div>
             </div>
+          </div>
+          <div className="inline-flex items-center gap-3 mb-6">
+            <span className="text-white/60 text-[10px] font-bold uppercase tracking-[0.3em]">About Our Agency</span>
           </div>
           <h1 className="font-display-lg text-4xl md:text-6xl font-bold text-white leading-tight mb-8">
             The Turning Point for <br className="hidden md:block" /> Your Peace of Mind
