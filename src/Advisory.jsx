@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import TopNavBar from './TopNavBar';
 import Footer from './Footer';
 import ScrollReveal from './ScrollReveal';
+import logo from './assets/SolacePointLogo.png';
 
 const articles = [
   {
@@ -65,12 +66,16 @@ const Advisory = () => {
         
         <ScrollReveal direction="up" className="relative z-10 w-full">
           <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
+            <div className="flex flex-col items-center gap-4 mb-8">
+              <img src={logo} alt="Solace Point Logo" className="h-20 w-auto object-contain brightness-0 invert" />
+              <div className="inline-flex items-center gap-3">
+                <div className="w-8 h-[1px] bg-secondary"></div>
+                <span className="text-secondary text-[11px] font-bold uppercase tracking-[0.3em]">Solace Point Insurance Agency</span>
+                <div className="w-8 h-[1px] bg-secondary"></div>
+              </div>
+            </div>
             <div className="inline-flex items-center gap-3 mb-6">
-              <div className="w-8 h-[1px] bg-secondary"></div>
-              <span className="text-secondary text-[11px] font-bold uppercase tracking-[0.3em]">
-                Expert Guidance
-              </span>
-              <div className="w-8 h-[1px] bg-secondary"></div>
+              <span className="text-white/60 text-[10px] font-bold uppercase tracking-[0.3em]">Expert Guidance</span>
             </div>
             <h1 className="font-display-lg text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-8">
               Advisory & Insights
@@ -130,7 +135,7 @@ const Advisory = () => {
         </div>
       </section>
 
-      {/* SECTION 3: 24/7 Digital Claims Portal */}
+      {/* SECTION 3: Convenient Digital Claims Submission */}
       <section className="py-24 md:py-32 bg-primary text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 pointer-events-none mix-blend-overlay">
           <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
@@ -142,15 +147,15 @@ const Advisory = () => {
             <ScrollReveal direction="left">
               <div>
                 <p className="text-secondary font-bold tracking-[0.5em] uppercase mb-4 text-sm">
-                  Always Available
+                  Digital Convenience
                 </p>
-                <h2 className="font-display-lg text-3xl md:text-5xl font-bold mb-8 leading-tight">The Lighthouse: 24/7 Digital Claims Portal</h2>
+                <h2 className="font-display-lg text-3xl md:text-5xl font-bold mb-8 leading-tight">The Lighthouse: Digital Claims Portal</h2>
                 <div className="space-y-6">
                   <p className="text-white/80 text-lg leading-relaxed">
-                    Our advisory doesn't stop at the sale. Acting as your lighthouse, we provide round-the-clock guidance when an accident happens.
+                    Our advisory doesn't stop at the sale. Acting as your lighthouse, we provide reliable guidance when an accident happens.
                   </p>
                   <p className="text-white/80 text-lg leading-relaxed">
-                    Filing a claim shouldn't be a daunting task. Through our digital portal, it is the exact point where your stress ends and the recovery process begins.
+                    Filing a claim shouldn't be a daunting task. Through our digital submission portal, it is the exact point where your stress ends and the guided recovery process begins.
                   </p>
                 </div>
                 
@@ -159,24 +164,24 @@ const Advisory = () => {
                     <div className="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center shrink-0 border border-secondary/30">
                       <span className="material-symbols-outlined text-secondary text-[16px]">verified</span>
                     </div>
-                    <span className="font-medium text-white/90">Instant incident reporting</span>
+                    <span className="font-medium text-white/90">Convenient incident reporting online</span>
                   </li>
                   <li className="flex items-center gap-4">
                     <div className="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center shrink-0 border border-secondary/30">
                       <span className="material-symbols-outlined text-secondary text-[16px]">map</span>
                     </div>
-                    <span className="font-medium text-white/90">Real-time recovery tracking</span>
+                    <span className="font-medium text-white/90">Guided claim progress tracking</span>
                   </li>
                   <li className="flex items-center gap-4">
                     <div className="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center shrink-0 border border-secondary/30">
                       <span className="material-symbols-outlined text-secondary text-[16px]">forum</span>
                     </div>
-                    <span className="font-medium text-white/90">Direct access to claim specialists</span>
+                    <span className="font-medium text-white/90">Direct communication with claim specialists</span>
                   </li>
                 </ul>
               </div>
             </ScrollReveal>
-
+ 
             <ScrollReveal direction="right" className="relative">
               <div className="aspect-square md:aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl relative border border-white/10">
                 <img src="https://images.unsplash.com/photo-1559827291-72ee739d0d9a?q=80&w=1200&auto=format&fit=crop" alt="Lighthouse guiding the way" className="w-full h-full object-cover" />
@@ -191,7 +196,7 @@ const Advisory = () => {
                 </div>
                 <div>
                   <p className="text-on-surface-variant text-xs font-bold uppercase tracking-widest mb-1">Response Time</p>
-                  <p className="text-primary font-display-md font-bold text-xl leading-none">Under 5 Mins</p>
+                  <p className="text-primary font-display-md font-bold text-lg leading-none">Within 1 Business Hour</p>
                 </div>
               </div>
             </ScrollReveal>

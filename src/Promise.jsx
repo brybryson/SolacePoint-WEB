@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import TopNavBar from './TopNavBar';
 import Footer from './Footer';
 import ScrollReveal from './ScrollReveal';
+import logo from './assets/SolacePointLogo.png';
 
 const values = [
   { name: 'Empathy', subtitle: 'The Solace', icon: 'favorite', desc: 'We prioritize the human experience behind every claim, offering consolation and comfort during times of loss.' },
@@ -11,10 +12,10 @@ const values = [
 ];
 
 const timeline = [
-  { step: '01', name: 'The Incident', title: 'Distress', desc: 'The moment the unexpected happens, causing uncertainty and stress.', icon: 'warning' },
-  { step: '02', name: 'The Solace Point', title: 'Arrival of Help', desc: 'You reach out. This is the exact point where your worry ends and we take over.', icon: 'location_on' },
-  { step: '03', name: 'Guided Recovery', title: '24/7 Support', desc: 'Our dedicated team provides clear, empathetic guidance through the entire process.', icon: 'support_agent' },
-  { step: '04', name: 'TerraFirm Stability', title: 'Restoration', desc: 'Your claim is resolved. You are anchored back to safety and stability.', icon: 'verified' }
+  { step: '01', name: 'The Evaluation', title: 'Understanding Your Needs', desc: 'We consult with you to identify exactly what requires protection—from your home and car to your travels and commercial assets.', icon: 'explore' },
+  { step: '02', name: 'The Architecture', title: 'Creating Your Plan', desc: 'We design a simple, custom-engineered non-life insurance plan tailored precisely to your budget and key assets.', icon: 'design_services' },
+  { step: '03', name: 'The Assistance', title: 'Responsive Claims Guidance', desc: 'Should an unexpected incident occur, our dedicated advisors offer clear, supportive guidance during office hours to make filing straightforward.', icon: 'support_agent' },
+  { step: '04', name: 'The Stability', title: 'Peace of Mind', desc: 'Enjoy the true peace of mind that comes with knowing your investments are backed by a reliable partner and professional trust.', icon: 'verified' }
 ];
 
 const PromiseComponent = () => {
@@ -45,12 +46,13 @@ const PromiseComponent = () => {
         
         <ScrollReveal direction="up" className="relative z-10">
           <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
-            <div className="inline-flex items-center gap-3 mb-6">
-              <div className="w-8 h-[1px] bg-secondary"></div>
-              <span className="text-secondary text-[11px] font-bold uppercase tracking-[0.3em]">
-                Our Promise
-              </span>
-              <div className="w-8 h-[1px] bg-secondary"></div>
+            <div className="flex flex-col items-center gap-4 mb-8">
+              <img src={logo} alt="Solace Point Logo" className="h-20 w-auto object-contain brightness-0 invert" />
+              <div className="inline-flex items-center gap-3">
+                <div className="w-8 h-[1px] bg-secondary"></div>
+                <span className="text-secondary text-[11px] font-bold uppercase tracking-[0.3em]">Solace Point Insurance Agency</span>
+                <div className="w-8 h-[1px] bg-secondary"></div>
+              </div>
             </div>
             <h1 className="font-display-lg text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-8">
               The Exact Point Where Worry Ends <br className="hidden md:block"/> and Recovery Begins
@@ -87,7 +89,7 @@ const PromiseComponent = () => {
               <div>
                 <p className="text-tertiary font-bold tracking-[0.5em] uppercase mb-4 text-sm">Brand Philosophy</p>
                 <h2 className="font-display-lg text-3xl md:text-5xl text-on-surface font-bold mb-8 leading-tight">Why Solace Point?</h2>
-                <div className="space-y-6">
+                <div className="space-y-6 text-justify">
                   <p className="text-on-surface-variant text-lg leading-relaxed">
                     <strong className="text-primary">Most insurance companies talk about disasters. We talk about resolution.</strong> We understand that an accident isn’t just a financial claim—it’s a moment of distress.
                   </p>
