@@ -13,6 +13,7 @@ const GetQuote = () => {
   const [propertyType, setPropertyType] = useState('');
   const [phone, setPhone] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // FIX: Scroll to top only on initial mount
   useEffect(() => {
@@ -31,9 +32,53 @@ const GetQuote = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [prevScrollPos]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsModalOpen(true);
+    setIsSubmitting(true);
+
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const cellphone = e.target.cellphone.value;
+    const type = e.target.type.value;
+    const otherType = e.target.otherType ? e.target.otherType.value : '';
+    const property = e.target.property.value;
+    const otherProperty = e.target.otherProperty ? e.target.otherProperty.value : '';
+    const amount = e.target.amount.value;
+    const details = e.target.details.value;
+
+    try {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5005';
+      const response = await fetch(`${apiUrl}/api/quote`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          phone: cellphone,
+          insuranceType: type,
+          otherInsuranceType: otherType,
+          propertyType: property,
+          otherPropertyType: otherProperty,
+          estimatedAmount: amount,
+          details
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setIsModalOpen(true);
+      } else {
+        alert(data.error || 'Failed to submit quote request. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting quote:', error);
+      alert('Network error. Make sure the backend API is running.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const navOpacity = Math.min(scrollY / 300, 1);
@@ -194,9 +239,9 @@ const GetQuote = () => {
                     <textarea className="w-full min-h-[120px] border border-outline p-4 rounded-lg focus:border-secondary focus:ring-1 focus:ring-secondary transition-all outline-none bg-transparent resize-none" id="details" placeholder=" "></textarea>
                     <label className="font-label-md text-label-md" htmlFor="details">Additional Details</label>
                   </div>
-                  <button className="w-full bg-secondary text-on-secondary h-16 rounded-lg font-label-md text-label-md flex items-center justify-center gap-2 hover:bg-secondary-container hover:text-on-secondary-container transition-colors shadow-lg shadow-secondary/20" type="submit">
-                    Get My Free Quote
-                    <span className="material-symbols-outlined">arrow_forward</span>
+                   <button className={`w-full bg-secondary text-on-secondary h-16 rounded-lg font-label-md text-label-md flex items-center justify-center gap-2 hover:bg-secondary-container hover:text-on-secondary-container transition-colors shadow-lg shadow-secondary/20 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`} type="submit" disabled={isSubmitting}>
+                    {isSubmitting ? 'Requesting...' : 'Get My Free Quote'}
+                    {!isSubmitting && <span className="material-symbols-outlined">arrow_forward</span>}
                   </button>
                   <p className="font-caption text-caption text-center text-on-surface-variant mt-4">
                     By submitting this form, you agree to our <a className="underline text-primary" href="#">Privacy Policy</a> and <a className="underline text-primary" href="#">Terms of Service</a>.

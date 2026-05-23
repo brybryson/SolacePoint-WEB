@@ -36,10 +36,40 @@ const Advisory = () => {
   const navigate = useNavigate();
   const [scrollY, setScrollY] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsModalOpen(true);
+    setIsSubmitting(true);
+
+    const name = e.target.fullName.value;
+    const email = e.target.email.value;
+    const interest = e.target.interest.value;
+    const details = e.target.details.value;
+
+    try {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5005';
+      const response = await fetch(`${apiUrl}/api/advisory`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, interest, details }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setIsModalOpen(true);
+      } else {
+        alert(data.error || 'Failed to request consultation. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting consultation:', error);
+      alert('Network error. Make sure the backend API is running.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   useEffect(() => {
@@ -225,17 +255,17 @@ const Advisory = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="text-xs font-bold uppercase tracking-widest text-primary ml-1">Full Name*</label>
-                    <input required onInput={(e) => { e.target.value = e.target.value.replace(/[^A-Za-z\s]/g, ''); }} pattern="[A-Za-z\s]+" title="Only letters and spaces are allowed" type="text" className="w-full bg-surface border border-outline-variant/40 rounded-xl px-5 py-4 text-on-surface focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all" placeholder="John Doe" />
+                    <input required id="fullName" name="fullName" onInput={(e) => { e.target.value = e.target.value.replace(/[^A-Za-z\s]/g, ''); }} pattern="[A-Za-z\s]+" title="Only letters and spaces are allowed" type="text" className="w-full bg-surface border border-outline-variant/40 rounded-xl px-5 py-4 text-on-surface focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all" placeholder="John Doe" />
                   </div>
                   <div className="space-y-2">
                     <label className="text-xs font-bold uppercase tracking-widest text-primary ml-1">Email Address*</label>
-                    <input required pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.com$" title="Must be a valid .com email address" type="email" className="w-full bg-surface border border-outline-variant/40 rounded-xl px-5 py-4 text-on-surface focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all" placeholder="john@example.com" />
+                    <input required id="email" name="email" pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.com$" title="Must be a valid .com email address" type="email" className="w-full bg-surface border border-outline-variant/40 rounded-xl px-5 py-4 text-on-surface focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all" placeholder="john@example.com" />
                   </div>
                 </div>
                 
                 <div className="space-y-2">
                   <label className="text-xs font-bold uppercase tracking-widest text-primary ml-1">Area of Interest*</label>
-                  <select required className="w-full bg-surface border border-outline-variant/40 rounded-xl px-5 py-4 text-on-surface focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all appearance-none cursor-pointer">
+                  <select required id="interest" name="interest" className="w-full bg-surface border border-outline-variant/40 rounded-xl px-5 py-4 text-on-surface focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all appearance-none cursor-pointer">
                     <option value="" disabled selected hidden>Select a coverage area...</option>
                     <option value="home">Home & Property (Fire)</option>
                     <option value="mobility">Mobility & Transit (Motor, TNVS, Travel)</option>
@@ -246,11 +276,12 @@ const Advisory = () => {
 
                 <div className="space-y-2">
                   <label className="text-xs font-bold uppercase tracking-widest text-primary ml-1">How can we help?*</label>
-                  <textarea required rows="4" className="w-full bg-surface border border-outline-variant/40 rounded-xl px-5 py-4 text-on-surface focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all resize-none" placeholder="Tell us about your needs..."></textarea>
+                  <textarea required id="details" name="details" rows="4" className="w-full bg-surface border border-outline-variant/40 rounded-xl px-5 py-4 text-on-surface focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all resize-none" placeholder="Tell us about your needs..."></textarea>
                 </div>
 
-                <button type="submit" className="w-full bg-primary text-white font-bold text-sm uppercase tracking-[0.3em] py-5 rounded-xl hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 mt-4 flex items-center justify-center gap-3">
-                  Request Consultation <span className="material-symbols-outlined text-[18px]">send</span>
+                <button type="submit" className={`w-full bg-primary text-white font-bold text-sm uppercase tracking-[0.3em] py-5 rounded-xl hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 mt-4 flex items-center justify-center gap-3 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`} disabled={isSubmitting}>
+                  {isSubmitting ? 'Submitting...' : 'Request Consultation'}
+                  {!isSubmitting && <span className="material-symbols-outlined text-[18px]">send</span>}
                 </button>
               </form>
             </div>

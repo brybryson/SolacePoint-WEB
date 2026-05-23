@@ -31,14 +31,34 @@ const Contact = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate API call
-    setTimeout(() => {
+
+    try {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5005';
+      const response = await fetch(`${apiUrl}/api/contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      const data = await response.json();
+      
+      if (response.ok && data.success) {
+        setIsSubmitting(false);
+        setShowSuccess(true);
+      } else {
+        alert(data.error || 'Failed to send message. Please try again later.');
+        setIsSubmitting(false);
+      }
+    } catch (error) {
+      console.error('Error submitting contact form:', error);
+      alert('Network error. Please make sure the backend API is running.');
       setIsSubmitting(false);
-      setShowSuccess(true);
-    }, 1500);
+    }
   };
 
   const closeSuccess = () => {

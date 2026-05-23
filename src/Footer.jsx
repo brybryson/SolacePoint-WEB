@@ -1,9 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import logo from './assets/SolacePointLogo.png';
 
 const Footer = () => {
   const navigate = useNavigate();
+  
+  // Newsletter Form State
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [statusMessage, setStatusMessage] = useState('');
+
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+    if (!newsletterEmail) return;
+    setIsSubmitting(true);
+    setStatusMessage('');
+
+    try {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5005';
+      const response = await fetch(`${apiUrl}/api/newsletter`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: newsletterEmail }),
+      });
+
+      const data = await response.json();
+      
+      if (response.ok && data.success) {
+        setStatusMessage(data.message || 'Welcome to the Circle!');
+        setNewsletterEmail('');
+      } else {
+        setStatusMessage(data.error || 'Failed to join. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error joining newsletter:', error);
+      setStatusMessage('Network error. Make sure the API server is running.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <footer className="bg-surface pt-32 pb-16 px-6 md:px-margin-desktop border-t border-outline-variant/30">
@@ -98,16 +135,28 @@ const Footer = () => {
             <p className="text-on-surface-variant text-sm mb-8 leading-relaxed">
               Receive curated insights on risk management and financial peace.
             </p>
-            <div className="flex flex-col gap-4">
+            <form onSubmit={handleSubscribe} className="flex flex-col gap-4">
               <input 
                 className="bg-surface-container-low border border-outline-variant/40 rounded-full px-6 py-4 w-full text-on-surface placeholder-on-surface-variant/50 focus:ring-2 focus:ring-primary outline-none transition-all" 
                 placeholder="Email Address" 
                 type="email"
+                required
+                value={newsletterEmail}
+                onChange={(e) => setNewsletterEmail(e.target.value)}
               />
-              <button className="bg-primary text-white px-8 py-4 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-on-surface transition-all shadow-lg">
-                Join the Circle
+              <button 
+                type="submit" 
+                disabled={isSubmitting}
+                className={`bg-primary text-white px-8 py-4 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-on-surface transition-all shadow-lg ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+              >
+                {isSubmitting ? 'Joining...' : 'Join the Circle'}
               </button>
-            </div>
+              {statusMessage && (
+                <p className="text-xs font-semibold tracking-wider text-primary mt-2">
+                  {statusMessage}
+                </p>
+              )}
+            </form>
           </div>
 
         </div>
