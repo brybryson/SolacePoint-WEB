@@ -14,6 +14,7 @@ const GetQuote = () => {
   const [phone, setPhone] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [amountDisplay, setAmountDisplay] = useState('');
 
   // FIX: Scroll to top only on initial mount
   useEffect(() => {
@@ -43,7 +44,7 @@ const GetQuote = () => {
     const otherType = e.target.otherType ? e.target.otherType.value : '';
     const property = e.target.property.value;
     const otherProperty = e.target.otherProperty ? e.target.otherProperty.value : '';
-    const amount = e.target.amount.value;
+    const amount = e.target.amount.value.replace(/,/g, '');
     const details = e.target.details.value;
 
     try {
@@ -232,7 +233,20 @@ const GetQuote = () => {
                   )}
 
                   <div className="floating-label-group">
-                    <input className="w-full h-14 border border-outline px-4 rounded-lg focus:border-secondary focus:ring-1 focus:ring-secondary transition-all outline-none bg-transparent" id="amount" placeholder=" " required type="number" max="999999" onInput={(e) => e.target.value = e.target.value.slice(0, 6)}/>
+                    <input
+                      className="w-full h-14 border border-outline px-4 rounded-lg focus:border-secondary focus:ring-1 focus:ring-secondary transition-all outline-none bg-transparent"
+                      id="amount"
+                      placeholder=" "
+                      required
+                      type="text"
+                      inputMode="numeric"
+                      value={amountDisplay}
+                      onChange={(e) => {
+                        const raw = e.target.value.replace(/[^0-9]/g, '').slice(0, 7);
+                        const formatted = raw.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+                        setAmountDisplay(formatted);
+                      }}
+                    />
                     <label className="font-label-md text-label-md" htmlFor="amount">Estimated Amount (₱)*</label>
                   </div>
                   <div className="floating-label-group">
