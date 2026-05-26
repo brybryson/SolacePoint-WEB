@@ -110,9 +110,9 @@ const Contact = () => {
                       <div>
                         <h4 className="font-bold text-sm uppercase tracking-widest text-primary mb-2">Our Office</h4>
                         <p className="text-on-surface-variant leading-relaxed text-lg">
-                          28th Floor, The Stability Tower<br />
-                          Makati Financial District<br />
-                          Metro Manila, Philippines
+                          2/F The Genesis Block<br />
+                          Bahay Pare Road<br />
+                          Meycauayan City, Bulacan
                         </p>
                       </div>
                     </div>
@@ -123,8 +123,8 @@ const Contact = () => {
                       </div>
                       <div>
                         <h4 className="font-bold text-sm uppercase tracking-widest text-primary mb-2">Direct Line</h4>
-                        <p className="text-on-surface-variant leading-relaxed text-lg mb-1">(02) 8800 1234</p>
-                        <p className="text-sm text-tertiary font-medium">Mon-Fri, 8AM-5PM</p>
+                        <p className="text-on-surface-variant leading-relaxed text-lg mb-1">(044) 761 8023</p>
+                        <p className="text-sm text-tertiary font-medium">Mon-Fri, 9AM-6PM</p>
                       </div>
                     </div>
 
@@ -134,7 +134,7 @@ const Contact = () => {
                       </div>
                       <div>
                         <h4 className="font-bold text-sm uppercase tracking-widest text-primary mb-2">Email Advisory</h4>
-                        <p className="text-on-surface-variant leading-relaxed text-lg mb-1">advisory@solacepoint.com</p>
+                        <p className="text-on-surface-variant leading-relaxed text-lg mb-1">solacepoint.insuranceagency@gmail.com</p>
                         <p className="text-sm text-tertiary font-medium">Priority response within 12 hours</p>
                       </div>
                     </div>
