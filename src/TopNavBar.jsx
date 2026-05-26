@@ -31,7 +31,7 @@ const TopNavBar = ({ scrollY, visible, navOpacity, isAtTop, theme = 'dark' }) =>
         <div className="hidden lg:flex items-center gap-10">
           <a className={`transition-colors duration-500 font-semibold text-[11px] uppercase tracking-[0.2em] ${
             !useLightColors ? 'text-white hover:text-secondary' : 'text-on-surface/70 hover:text-primary'
-          }`} href="#" onClick={(e) => { e.preventDefault(); navigate('/about'); setIsMobileMenuOpen(false); }}>Experience</a>
+          }`} href="#" onClick={(e) => { e.preventDefault(); navigate('/about'); setIsMobileMenuOpen(false); }}>About</a>
           <a className={`transition-colors duration-500 font-semibold text-[11px] uppercase tracking-[0.2em] ${
             !useLightColors ? 'text-white hover:text-secondary' : 'text-on-surface/70 hover:text-primary'
           }`} href="#" onClick={(e) => { e.preventDefault(); navigate('/products'); setIsMobileMenuOpen(false); }}>Products</a>
@@ -60,7 +60,7 @@ const TopNavBar = ({ scrollY, visible, navOpacity, isAtTop, theme = 'dark' }) =>
           ? 'bg-black/20 backdrop-blur-md border-t border-white/10'
           : 'bg-white border-t border-outline/10'
       }`}>
-        <a className={`py-5 px-8 font-semibold text-xs uppercase tracking-widest transition-colors ${!useLightColors ? 'text-white border-b border-white/10 hover:bg-white/10' : 'text-on-surface border-b border-outline/10 hover:bg-surface'}`} href="#" onClick={(e) => { e.preventDefault(); navigate('/about'); setIsMobileMenuOpen(false); }}>Experience</a>
+        <a className={`py-5 px-8 font-semibold text-xs uppercase tracking-widest transition-colors ${!useLightColors ? 'text-white border-b border-white/10 hover:bg-white/10' : 'text-on-surface border-b border-outline/10 hover:bg-surface'}`} href="#" onClick={(e) => { e.preventDefault(); navigate('/about'); setIsMobileMenuOpen(false); }}>About</a>
         <a className={`py-5 px-8 font-semibold text-xs uppercase tracking-widest transition-colors ${!useLightColors ? 'text-white border-b border-white/10 hover:bg-white/10' : 'text-on-surface border-b border-outline/10 hover:bg-surface'}`} href="#" onClick={(e) => { e.preventDefault(); navigate('/products'); setIsMobileMenuOpen(false); }}>Products</a>
         <a className={`py-5 px-8 font-semibold text-xs uppercase tracking-widest transition-colors ${!useLightColors ? 'text-white border-b border-white/10 hover:bg-white/10' : 'text-on-surface border-b border-outline/10 hover:bg-surface'}`} href="#" onClick={(e) => { e.preventDefault(); navigate('/promise'); setIsMobileMenuOpen(false); }}>Our Promise</a>
         <a className={`py-5 px-8 font-semibold text-xs uppercase tracking-widest transition-colors ${!useLightColors ? 'text-white hover:bg-white/10' : 'text-on-surface hover:bg-surface'}`} href="#" onClick={(e) => { e.preventDefault(); navigate('/advisory'); setIsMobileMenuOpen(false); }}>Advisory</a>
