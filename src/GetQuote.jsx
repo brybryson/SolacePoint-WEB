@@ -125,8 +125,8 @@ const GetQuote = () => {
                       <span className="font-display-lg text-5xl md:text-6xl italic text-tertiary/60 leading-none">01</span>
                     </div>
                     <div>
-                      <h4 className="font-body-lg text-xl md:text-2xl mb-2 md:mb-3 text-on-surface font-bold tracking-tight">Elite Provider Network</h4>
-                      <p className="text-on-surface-variant leading-relaxed text-base md:text-lg max-w-sm">Access exclusively vetted, multiple top-tier insurance partners.</p>
+                      <h4 className="font-body-lg text-xl md:text-2xl mb-2 md:mb-3 text-on-surface font-bold tracking-tight">Trusted Provider Network</h4>
+                      <p className="text-on-surface-variant leading-relaxed text-base md:text-lg max-w-sm">Access a broad, carefully vetted network of reputable insurance partners.</p>
                     </div>
                   </div>
                   
@@ -136,7 +136,7 @@ const GetQuote = () => {
                     </div>
                     <div>
                       <h4 className="font-body-lg text-xl md:text-2xl mb-2 md:mb-3 text-on-surface font-bold tracking-tight">Optimized Premium Structures</h4>
-                      <p className="text-on-surface-variant leading-relaxed text-base md:text-lg max-w-sm">The absolute best rates guaranteed through strategic architecture.</p>
+                      <p className="text-on-surface-variant leading-relaxed text-base md:text-lg max-w-sm">Highly competitive rates designed to fit your specific budget and protection needs.</p>
                     </div>
                   </div>
 
@@ -145,8 +145,8 @@ const GetQuote = () => {
                       <span className="font-display-lg text-5xl md:text-6xl italic text-tertiary/60 leading-none">03</span>
                     </div>
                     <div>
-                      <h4 className="font-body-lg text-xl md:text-2xl mb-2 md:mb-3 text-on-surface font-bold tracking-tight">Expedited Processing</h4>
-                      <p className="text-on-surface-variant leading-relaxed text-base md:text-lg max-w-sm">Rapid quote turnaround without sacrificing analytical depth.</p>
+                      <h4 className="font-body-lg text-xl md:text-2xl mb-2 md:mb-3 text-on-surface font-bold tracking-tight">Efficient Processing</h4>
+                      <p className="text-on-surface-variant leading-relaxed text-base md:text-lg max-w-sm">Prompt and reliable turnaround times to get you covered without unnecessary delays.</p>
                     </div>
                   </div>
                 </div>
