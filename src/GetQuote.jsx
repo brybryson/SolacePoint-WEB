@@ -281,11 +281,14 @@ const GetQuote = () => {
               <div className="space-y-6">
                 <div className="flex items-center gap-6 group">
                   <span className="material-symbols-outlined text-[24px] text-tertiary" data-icon="call">call</span>
-                  <span className="font-body-md text-xl tracking-wider group-hover:text-tertiary transition-colors">(044) 761 8023</span>
+                  <div>
+                    <span className="font-body-md text-xl tracking-wider group-hover:text-tertiary transition-colors block">(044) 761 8023</span>
+                    <span className="text-white/60 text-xs font-semibold uppercase tracking-wider block mt-1">Mon-Fri, 9AM-6PM</span>
+                  </div>
                 </div>
                 <div className="flex items-center gap-6 group">
                   <span className="material-symbols-outlined text-[24px] text-tertiary" data-icon="mail">mail</span>
-                  <span className="font-body-md text-xl tracking-wider group-hover:text-tertiary transition-colors">advisory@solacepoint.com</span>
+                  <span className="font-body-md text-xl tracking-wider group-hover:text-tertiary transition-colors">solacepoint.insuranceagency@gmail.com</span>
                 </div>
               </div>
             </div>
