@@ -108,7 +108,7 @@ const LandingPage = () => {
               <img src={logo} alt="Solace Point Logo" className="h-16 w-auto object-contain brightness-0 invert opacity-95" />
               <div className="flex flex-col justify-center">
                 <span className="text-white font-display text-2xl tracking-[0.1em] font-semibold leading-none uppercase">Solace Point</span>
-                <span className="text-secondary text-[11px] font-bold uppercase tracking-[0.3em] mt-2.5 leading-none">Architects of Stability</span>
+                <span className="text-secondary text-[11px] font-bold uppercase tracking-[0.3em] mt-2.5 leading-none">insurance agency</span>
               </div>
             </div>
 
